@@ -1,4 +1,8 @@
 .DS_Store
+<<<<<<< HEAD
+=======
+
+>>>>>>> feature/login-tvs
 # Logs
 logs
 *.log

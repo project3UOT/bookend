@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // NEED TO IMPORT SCHEMA FROM MODELS
-const EXAMPLE = require('./');
+const bookSchema = require('./Book');
 
 const userSchema = new Schema(
   {
@@ -21,8 +21,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+      // set savebooks to be an array of data
+      savedBooks: [bookSchema],
   },
-  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,
@@ -44,6 +45,11 @@ userSchema.pre('save', async function (next) {
 userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+// query a user will also get another field called bookcount for number of saved books
+userSchema.virtual('bookCount').get(function () {
+  return this.savedBooks.length;
+});
 
 const User = model('User', userSchema);
 
