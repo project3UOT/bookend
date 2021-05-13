@@ -50,6 +50,6 @@ export const deleteBook = (bookId, token) => {
 
 
 // make a search to API
-export const searchExample = (query) => {
+export const SearchGoogleBooks = (query) => {
   return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 };
