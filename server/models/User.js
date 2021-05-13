@@ -21,8 +21,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+      // set savebooks to be an array of data
+      savedBooks: [bookSchema],
   },
-  // set this to use virtual below
   {
     toJSON: {
       virtuals: true,
