@@ -8532,6 +8532,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding: 0 !important;
 }
 
+.p-0-mobile {
+  padding: 0 !important;
+}
+.m-0-mobile {
+  margin: 0 !important;
+}
 .m-0 {
   margin: 0 !important;
 }
@@ -10551,6 +10557,12 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   flex-grow: 1;
   flex-shrink: 0;
   padding: 3rem 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .hero-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 .section {
