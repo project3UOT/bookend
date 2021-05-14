@@ -4503,7 +4503,7 @@ button.dropdown-item.is-active {
   justify-content: center;
   overflow: hidden;
   position: fixed;
-  z-index: 40;
+  z-index: 1000;
 }
 .modal.is-active {
   display: flex;
@@ -4533,7 +4533,7 @@ button.dropdown-item.is-active {
 .modal-close {
   background: none;
   height: 40px;
-  position: fixed;
+  position: absolute;
   right: 20px;
   top: 20px;
   width: 40px;
@@ -4554,7 +4554,7 @@ button.dropdown-item.is-active {
   display: flex;
   flex-shrink: 0;
   justify-content: flex-start;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   position: relative;
 }
 
@@ -6039,7 +6039,7 @@ label.panel-block:hover {
   border-bottom-color: #dbdbdb;
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  color: whitesmoke;
+  color: #747a9a;
   display: flex;
   justify-content: center;
   margin-bottom: -1px;
