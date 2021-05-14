@@ -12,31 +12,31 @@ const AppNavbar = () => {
 
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand'>
-          <a className="navbar-item" href="/">
+          <a className='navbar-item' href='/'>
             Book End
         </a>
         </div>
 
-        <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
+        <div className='navbar-end'>
+          <div className='navbar-item'>
+            <div className='buttons'>
               {Auth.loggedIn() ? (
                 <>
-                  <a className="button is-primary">
+                  <a className='button is-primary' href='/profile'>
                     <strong>My Books</strong>
                   </a>
-                  <a className="button is-primary" onClick={Auth.logout}>
+                  <a className='button is-primary' onClick={Auth.logout}>
                     <strong>Logout</strong>
                   </a>
                 </>
               ) : (
                   <>
-                    <a className="button is-primary" onClick={() => setShowModal(true)}>
+                    <a className='button is-primary' onClick={() => setShowModal(true)}>
                       <strong>Login</strong>
                     </a>
-                    <a className="button is-primary" onClick={() => {
+                    <a className='button is-primary' onClick={() => {
                       setShowModal(true);
                       setShowLogin(false);
                     }}>
@@ -52,10 +52,10 @@ const AppNavbar = () => {
 
       {/* modal */}
       <div className={showModal ? 'modal is-active' : 'modal'}>
-        <div className="modal-background"></div>
-        <div className="modal-card">
-          <header className="modal-card-head is-justify-content-space-between is-align-items-flex-start">
-            <div className="tabs">
+        <div className='modal-background'></div>
+        <div className='modal-card'>
+          <header className='modal-card-head is-justify-content-space-between is-align-items-flex-start'>
+            <div className='tabs'>
               <ul>
                 <li className={showLogin ? 'is-active' : ''}>
                   <a onClick={() => setShowLogin(true)}>Login</a>
@@ -65,9 +65,9 @@ const AppNavbar = () => {
                 </li>
               </ul>
             </div>
-            <button className="delete" aria-label="close" onClick={() => setShowModal(false)}></button>
+            <button className='delete' aria-label='close' onClick={() => setShowModal(false)}></button>
           </header>
-          <section className="modal-card-body no-foot">
+          <section className='modal-card-body no-foot'>
             {showLogin ? <LoginForm handleModalClose={() => setShowModal(false)} /> :
               <SignUpForm handleModalClose={() => setShowModal(false)} />}
           </section>
