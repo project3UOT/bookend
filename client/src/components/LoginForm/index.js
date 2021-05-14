@@ -54,7 +54,7 @@ const LoginForm = () => {
 
         <div className='field'>
           <div className='control'>
-            <label class='label' htmlFor='email'>Email</label>
+            <label className='label' htmlFor='email'>Email</label>
             <input
               className='input'
               type='text'
@@ -96,7 +96,7 @@ const LoginForm = () => {
         </button>
 
         </div>
-        
+
       </form>
     </>
   );

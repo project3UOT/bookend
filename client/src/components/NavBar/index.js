@@ -25,7 +25,10 @@ const AppNavbar = () => {
               <a className="button is-primary" onClick={() => setShowModal(true)}>
                 <strong>Login</strong>
               </a>
-              <a className="button is-primary" onClick={() => setShowModal(true)}>
+              <a className="button is-primary" onClick={() => {
+                setShowModal(true);
+                setShowLogin(false);
+              }}>
                 <strong>Sign up</strong>
               </a>
             </div>
@@ -44,8 +47,8 @@ const AppNavbar = () => {
                 <li className={showLogin ? 'is-active' : ''}>
                   <a onClick={() => setShowLogin(true)}>Login</a>
                 </li>
-                <li>
-                  <a className={!showLogin ? 'is-active' : ''} onClick={() => setShowLogin(false)}>Sign Up</a>
+                <li className={showLogin ? '' : 'is-active'}>
+                  <a onClick={() => setShowLogin(false)}>Sign Up</a>
                 </li>
               </ul>
             </div>
@@ -55,11 +58,6 @@ const AppNavbar = () => {
             {showLogin ? <LoginForm handleModalClose={() => setShowModal(false)} /> :
               <SignUpForm handleModalClose={() => setShowModal(false)} />}
           </section>
-          
-          {/* <footer className="modal-card-foot">
-            <button className="button is-success">Start Reading!</button>
-            <button className="button">Cancel</button>
-          </footer> */}
 
         </div>
       </div>
