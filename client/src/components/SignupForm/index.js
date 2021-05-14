@@ -49,15 +49,16 @@ const SignupForm = () => {
   return (
     <>
       {/* This is needed for the validation functionality above */}
-      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your signup!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
-          <Form.Control
+        <div className='field'>
+          <div className='control'>
+          <label className='label' htmlFor='username'>Username</label>
+          <input className='input'
             type='text'
             placeholder='Your username'
             name='username'
@@ -65,43 +66,51 @@ const SignupForm = () => {
             value={userFormData.username}
             required
           />
+          </div>
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
-        </Form.Group>
+        </div>
         
 
-        <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
-          <Form.Control
+        <div className='field'>
+          <div className='control'>
+          <label className='label' htmlFor='email'>Email</label>
+
+          <input className='input'
             type='email'
             placeholder='Your email address'
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
             required
-          />
+            />
+          </div>
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
-        </Form.Group>
+        </div>
         
 
-        <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
+        <div className='field'>
+          <div className='control'>
+          <label className='label' htmlFor='password'>Password</label>
+
+          <input className='input'
             type='password'
             placeholder='Your password'
             name='password'
             onChange={handleInputChange}
             value={userFormData.password}
             required
-          />
+            />
+            </div>
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
-        <Button
+        </div>
+        <button
+          className='button is-success'
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
-        </Button>
-      </Form>
+        </button>
+      </form>
     </>
   );
 };

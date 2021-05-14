@@ -56,12 +56,10 @@ const AppNavbar = () => {
               <SignUpForm handleModalClose={() => setShowModal(false)} />}
           </section>
           
-          
           {/* <footer className="modal-card-foot">
             <button className="button is-success">Start Reading!</button>
             <button className="button">Cancel</button>
           </footer> */}
-
 
         </div>
       </div>
