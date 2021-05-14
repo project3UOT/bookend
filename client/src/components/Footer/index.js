@@ -3,20 +3,25 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className='footer'>
-            <div className='content is-flex'>
+            <div className='content is-flex is-justify-content-center-mobile'>
 
-                <a href='/about'>
-                    <h3 className='is-family-secondary is-size-4 has-text-link-light pl-4'>About Us</h3>
+                <a href='/about' className='is-family-secondary is-size-4 pl-4'>
+                    <strong>
+                        About Us
+                    </strong>
                 </a>
-                <a href='contact'>
-                    <h3 className='is-family-secondary is-size-4 has-text-link-light pl-4'>Contact</h3>
+                <a href='contact' className='is-family-secondary is-size-4 pl-4'>
+                    <strong>
+                        Contact
+                    </strong>
                 </a>
                 <a
-                    href='https://github.com/project3UOT/bookend'
-
+                    href='https://github.com/project3UOT/bookend' className='is-family-secondary is-size-4 pl-4'
                     target='_blank'
                     rel='noopener noreferrer'>
-                    <h3 className='is-family-secondary is-size-4 has-text-link-light pl-4'>GitHub</h3>
+                    <strong>
+                        GitHub
+                    </strong>
                 </a>
             </div>
         </footer>

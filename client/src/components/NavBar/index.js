@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import SignUpForm from '../SignupForm/index';
 import LoginForm from '../LoginForm/index';
 
@@ -14,9 +13,9 @@ const AppNavbar = () => {
     <>
       <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand'>
-          <a className='navbar-item' href='/'>
+          <a className='navbar-item is-family-heading is-size-2' href='/'>
             Book End
-        </a>
+          </a>
         </div>
 
         <div className='navbar-end'>
@@ -27,21 +26,21 @@ const AppNavbar = () => {
                   <a className='button is-primary' href='/profile'>
                     <strong>My Books</strong>
                   </a>
-                  <a className='button is-primary' onClick={Auth.logout}>
+                  <a className='button is-primary' onClick={Auth.logout} href='/'>
                     <strong>Logout</strong>
                   </a>
                 </>
               ) : (
                   <>
-                    <a className='button is-primary' onClick={() => setShowModal(true)}>
+                    <button className='button is-primary' onClick={() => setShowModal(true)}>
                       <strong>Login</strong>
-                    </a>
-                    <a className='button is-primary' onClick={() => {
+                    </button>
+                    <button className='button is-primary' onClick={() => {
                       setShowModal(true);
                       setShowLogin(false);
                     }}>
                       <strong>Sign up</strong>
-                    </a>
+                    </button>
                   </>
                 )}
             </div>
