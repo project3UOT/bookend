@@ -22,22 +22,35 @@ const AppNavbar = () => {
         <div className="navbar-end">
           <div className="navbar-item">
             <div className="buttons">
-              <a className="button is-primary" onClick={() => setShowModal(true)}>
-                <strong>Login</strong>
-              </a>
-              <a className="button is-primary" onClick={() => {
-                setShowModal(true);
-                setShowLogin(false);
-              }}>
-                <strong>Sign up</strong>
-              </a>
+              {Auth.loggedIn() ? (
+                <>
+                  <a className="button is-primary">
+                    <strong>My Books</strong>
+                  </a>
+                  <a className="button is-primary">
+                    <strong>Logout</strong>
+                  </a>
+                </>
+              ) : (
+                  <>
+                    <a className="button is-primary" onClick={() => setShowModal(true)}>
+                      <strong>Login</strong>
+                    </a>
+                    <a className="button is-primary" onClick={() => {
+                      setShowModal(true);
+                      setShowLogin(false);
+                    }}>
+                      <strong>Sign up</strong>
+                    </a>
+                  </>
+                )}
             </div>
           </div>
         </div>
 
       </nav>
 
-    {/* modal */}
+      {/* modal */}
       <div className={showModal ? 'modal is-active' : 'modal'}>
         <div className="modal-background"></div>
         <div className="modal-card">
