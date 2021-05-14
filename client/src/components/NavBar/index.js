@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from '../SignupForm/index';
 import LoginForm from '../LoginForm/index';
 
@@ -35,6 +34,7 @@ const AppNavbar = () => {
 
       </nav>
 
+    {/* modal */}
       <div className={showModal ? 'modal is-active' : 'modal'}>
         <div className="modal-background"></div>
         <div className="modal-card">
@@ -49,16 +49,20 @@ const AppNavbar = () => {
                 </li>
               </ul>
             </div>
-            <button className="delete" aria-label="close"></button>
+            <button className="delete" aria-label="close" onClick={() => setShowModal(false)}></button>
           </header>
           <section className="modal-card-body">
             {showLogin ? <LoginForm handleModalClose={() => setShowModal(false)} /> :
               <SignUpForm handleModalClose={() => setShowModal(false)} />}
           </section>
-          <footer className="modal-card-foot">
+          
+          
+          {/* <footer className="modal-card-foot">
             <button className="button is-success">Start Reading!</button>
             <button className="button">Cancel</button>
-          </footer>
+          </footer> */}
+
+
         </div>
       </div>
     </>
