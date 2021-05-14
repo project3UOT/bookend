@@ -3652,7 +3652,7 @@ a.tag:hover {
 }
 .field.has-addons {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .field.has-addons .control:not(:last-child) {
   margin-right: -1px;
