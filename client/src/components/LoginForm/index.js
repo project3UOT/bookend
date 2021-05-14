@@ -37,6 +37,7 @@ const LoginForm = () => {
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
+      setShowAlert(true);
     }
 
     setUserFormData({
@@ -48,9 +49,15 @@ const LoginForm = () => {
   return (
     <>
       <form noValidate validated={validated} onSubmit={handleFormSubmit}>
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your login credentials!
-        </Alert>
+        <article 
+        className=
+        {'message is-danger is-justify-content-space-between is-align-items-center'
+          + (showAlert ? ' is-flex' : ' is-hidden')}
+        >
+          <div className='message-body'>
+            Something went wrong with your login credentials!
+          </div>
+        </article>
 
         <div className='field'>
           <div className='control'>

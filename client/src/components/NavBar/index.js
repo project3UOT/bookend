@@ -27,7 +27,7 @@ const AppNavbar = () => {
                   <a className="button is-primary">
                     <strong>My Books</strong>
                   </a>
-                  <a className="button is-primary">
+                  <a className="button is-primary" onClick={Auth.logout}>
                     <strong>Logout</strong>
                   </a>
                 </>

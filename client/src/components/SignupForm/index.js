@@ -51,9 +51,15 @@ const SignupForm = () => {
       {/* This is needed for the validation functionality above */}
       <form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
-        <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
-          Something went wrong with your signup!
-        </Alert>
+        <article
+          className=
+          {'message is-danger is-justify-content-space-between is-align-items-center'
+            + (showAlert ? ' is-flex' : ' is-hidden')}
+        >
+          <div className='message-body'>
+            Something went wrong with your sign up!
+          </div>
+        </article>
 
         <div className='field'>
           <div className='control'>
