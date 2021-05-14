@@ -4589,6 +4589,9 @@ button.dropdown-item.is-active {
   overflow: auto;
   padding: 20px;
 }
+.modal-card-body.no-foot {
+  border-radius: 0 0 6px 6px;
+}
 
 .navbar {
   background-color: #3a3e50;
