@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BookCard = ({ title, author }) => {
+const BookCard = ({ title, author, read }) => {
     return (
         <div className='column is-2-desktop is-4-tablet'>
 

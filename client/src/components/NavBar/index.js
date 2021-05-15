@@ -8,34 +8,45 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   return (
     <>
       <nav className='navbar' role='navigation' aria-label='main navigation'>
-        <div className='navbar-brand'>
-          <a className='navbar-item is-family-heading is-size-2' href='/'>
+        <div className='navbar-brand is-align-items-center'>
+          <a className='navbar-item' href='/'>
             <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
+          </a>
+          <a 
+          role='button' 
+          className={'navbar-burger' + (showMobileNav ? ' is-active' : '')} 
+          aria-label='menu' 
+          aria-expanded='false'
+            onClick={() => { setShowMobileNav(!showMobileNav) }}>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
           </a>
         </div>
 
-        <div className='navbar-end'>
+        <div className={'navbar-menu navbar-end' + (showMobileNav ? ' is-active is-justify-content-center' : '')}>
           <div className='navbar-item'>
             <div className='buttons'>
               {Auth.loggedIn() ? (
                 <>
-                  <a className='button is-primary' href='/profile'>
+                  <a className='button is-primary is-size-5' href='/profile'>
                     <strong>My Books</strong>
                   </a>
-                  <a className='button is-primary' onClick={Auth.logout} href='/'>
+                  <a className='button is-primary is-size-5' onClick={Auth.logout} href='/'>
                     <strong>Logout</strong>
                   </a>
                 </>
               ) : (
                   <>
-                    <button className='button is-primary' onClick={() => setShowModal(true)}>
+                    <button className='button is-primary is-size-4' onClick={() => setShowModal(true)}>
                       <strong>Login</strong>
                     </button>
-                    <button className='button is-primary' onClick={() => {
+                    <button className='button is-primary is-size-4' onClick={() => {
                       setShowModal(true);
                       setShowLogin(false);
                     }}>

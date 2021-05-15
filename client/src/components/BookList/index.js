@@ -6,19 +6,23 @@ const BookList = () => {
         {
             title: 'Pride and Prejudice',
             author: 'Jane Austen',
-            id: 1
+            id: 1,
+            read: true
         },
         {
             title: 'Normal People',
             author: 'Sally Rooney',
-            id: 2
+            id: 2,
+            read: true
         },
         {
             title: 'Cloud Atlas',
             author: 'David Mitchell',
-            id: 3
+            id: 3,
+            read: true
         }
-    ]
+    ];
+    
     return (
         <div className='container py-5'>
             <h2 className='text-dark is-family-secondary is-size-2-widscreen is-size-3-desktop py-4'>My Books</h2>
@@ -30,6 +34,7 @@ const BookList = () => {
                         <BookCard 
                         title={book.title}
                         author={book.author}
+                        read={book.read}
                         key={book.id}/>
                         )
                     })
