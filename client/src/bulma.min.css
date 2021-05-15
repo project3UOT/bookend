@@ -4564,6 +4564,9 @@ button.dropdown-item.is-active {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
+.modal-card-head.modal-tabs {
+  border-bottom: none;
+}
 
 .modal-card-title {
   color: #363636;

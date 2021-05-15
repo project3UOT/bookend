@@ -53,14 +53,14 @@ const AppNavbar = () => {
       <div className={showModal ? 'modal is-active' : 'modal'}>
         <div className='modal-background'></div>
         <div className='modal-card'>
-          <header className='modal-card-head is-justify-content-space-between is-align-items-flex-start'>
-            <div className='tabs'>
+          <header className='modal-card-head modal-tabs is-justify-content-space-between is-align-items-flex-start'>
+            <div className='tabs is-boxed is-fullwidth mb-0'>
               <ul>
                 <li className={showLogin ? 'is-active' : ''}>
-                  <a onClick={() => setShowLogin(true)}>Login</a>
+                  <a className='has-text-primary' onClick={() => setShowLogin(true)}>Login</a>
                 </li>
                 <li className={showLogin ? '' : 'is-active'}>
-                  <a onClick={() => setShowLogin(false)}>Sign Up</a>
+                  <a className='has-text-primary' onClick={() => setShowLogin(false)}>Sign Up</a>
                 </li>
               </ul>
             </div>
