@@ -13,7 +13,7 @@
   border-radius: 4px;
   box-shadow: none;
   display: inline-flex;
-  font-size: 1.6rem;
+  font-size: 1rem;
   height: 2.5em;
   justify-content: flex-start;
   line-height: 1.5;
@@ -311,7 +311,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Martel", serif !important;
+  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
 
 code,
@@ -445,6 +445,7 @@ a.box:active {
   border-width: 1px;
   color: #363636;
   cursor: pointer;
+  font-family: "Martel", serif;
   justify-content: center;
   padding-bottom: calc(0.5em - 1px);
   padding-left: 1em;
@@ -2810,6 +2811,7 @@ a.tag:hover {
   border-color: #dbdbdb;
   border-radius: 4px;
   color: #363636;
+  font-family: "Martel", serif;
 }
 .select select::-moz-placeholder, .textarea::-moz-placeholder, .input::-moz-placeholder {
   color: rgba(54, 54, 54, 0.3);
@@ -4564,6 +4566,9 @@ button.dropdown-item.is-active {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
+.modal-card-head.modal-tabs {
+  border-bottom: none;
+}
 
 .modal-card-title {
   color: #363636;
@@ -5252,8 +5257,9 @@ body.has-navbar-fixed-bottom {
 
 .navbar-brand,
 .navbar-tabs {
-  align-items: stretch;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex-shrink: 0;
   min-height: 3.25rem;
 }
@@ -5348,8 +5354,8 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   flex-shrink: 0;
 }
 .navbar-item img {
-  max-height: 400px;
-  max-width: 400px;
+  max-height: 7rem;
+  max-width: 60vw;
 }
 .navbar-item.has-dropdown {
   padding: 0;
@@ -9468,7 +9474,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .is-flex {
   display: flex !important;
-  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 768px) {

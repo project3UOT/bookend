@@ -8,34 +8,47 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
+  const [showMobileNav, setShowMobileNav] = useState(false);
 
   return (
     <>
       <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand'>
-          <a className='navbar-item is-family-heading is-size-2' href='/'>
+          <a
+            role='button'
+            className={'navbar-burger px-4' + (showMobileNav ? ' is-active' : '')}
+            aria-label='menu'
+            aria-expanded='false'
+            onClick={() => { setShowMobileNav(!showMobileNav) }}>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+            <span aria-hidden='true'></span>
+          </a>
+          
+          <a className='navbar-item' href='/'>
             <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
           </a>
+          
         </div>
 
-        <div className='navbar-end'>
+        <div className={'navbar-menu navbar-end' + (showMobileNav ? ' is-active is-justify-content-center' : '')}>
           <div className='navbar-item'>
             <div className='buttons'>
               {Auth.loggedIn() ? (
                 <>
-                  <a className='button is-primary' href='/profile'>
+                  <a className='button is-primary is-size-5' href='/profile'>
                     <strong>My Books</strong>
                   </a>
-                  <a className='button is-primary' onClick={Auth.logout} href='/'>
+                  <a className='button is-primary is-size-5' onClick={Auth.logout} href='/'>
                     <strong>Logout</strong>
                   </a>
                 </>
               ) : (
                   <>
-                    <button className='button is-primary' onClick={() => setShowModal(true)}>
+                    <button className='button is-primary is-size-4 is-size-5-mobile' onClick={() => setShowModal(true)}>
                       <strong>Login</strong>
                     </button>
-                    <button className='button is-primary' onClick={() => {
+                    <button className='button is-primary is-size-4 is-size-5-mobile' onClick={() => {
                       setShowModal(true);
                       setShowLogin(false);
                     }}>
@@ -53,14 +66,14 @@ const AppNavbar = () => {
       <div className={showModal ? 'modal is-active' : 'modal'}>
         <div className='modal-background'></div>
         <div className='modal-card'>
-          <header className='modal-card-head is-justify-content-space-between is-align-items-flex-start'>
-            <div className='tabs'>
+          <header className='modal-card-head modal-tabs is-justify-content-space-between is-align-items-flex-start'>
+            <div className='tabs is-boxed is-fullwidth mb-0'>
               <ul>
                 <li className={showLogin ? 'is-active' : ''}>
-                  <a onClick={() => setShowLogin(true)}>Login</a>
+                  <a className='has-text-primary' onClick={() => setShowLogin(true)}>Login</a>
                 </li>
                 <li className={showLogin ? '' : 'is-active'}>
-                  <a onClick={() => setShowLogin(false)}>Sign Up</a>
+                  <a className='has-text-primary' onClick={() => setShowLogin(false)}>Sign Up</a>
                 </li>
               </ul>
             </div>
