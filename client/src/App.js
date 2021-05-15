@@ -4,6 +4,7 @@ import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/NavBar';
 import Footer from './components/Footer'
+import { BookendProvider } from './utils/GlobalState';
 
 // IMPORT PAGES HERE 
 import Home from './pages/Home';
@@ -26,7 +27,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
+        <BookendProvider>
           <Navbar />
           <Switch>
             <Route exact path='/' component={Home} />
@@ -36,7 +37,7 @@ function App() {
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>
           <Footer />
-        </>
+        </BookendProvider>
       </Router>
     </ApolloProvider>
   );

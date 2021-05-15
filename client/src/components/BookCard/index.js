@@ -1,8 +1,7 @@
 import React from 'react';
 import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt } from "react-icons/fa";
 
-
-const BookCard = ({ title, author, read }) => {
+const BookCard = ({ title, author, read, favourite }) => {
     return (
         <div className='column is-2-desktop is-4-tablet'>
 
@@ -18,7 +17,7 @@ const BookCard = ({ title, author, read }) => {
                     <button className={'button is-inverted' + (read ? ' is-secondary' : ' is-primary')}>
                         <FaCheckCircle />
                     </button>
-                    <button className='button is-primary is-inverted'>
+                    <button className={'button is-inverted' + (favourite ? ' is-secondary' : ' is-primary')}>
                         <FaHeart />
                     </button>
                     <a href='/' className='button is-inverted is-primary'>

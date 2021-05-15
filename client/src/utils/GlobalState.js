@@ -2,23 +2,20 @@ import React, { createContext, useContext } from "react";
 import { useBookendReducer } from './reducers';
 
 const BookendContext = createContext();
-const { Provider } = StoreContext;
+const { Provider } = BookendContext;
 
 const BookendProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useBookendReducer({
-        products: [],
-        cart: [],
-        cartOpen: false,
-        categories: [],
-        currentCategory: ''
+        categories: ['All', 'Reading List', 'Read', 'Favourites'],
+        currentCategory: 'All'
     });
     // use this to confirm it works!
     console.log(state);
     return <Provider value={[state, dispatch]} {...props} />;
 };
 
-const useStoreContext = () => {
-    return useContext(StoreContext);
+const useBookendContext = () => {
+    return useContext(BookendContext);
 };
 
-export { StoreProvider, useStoreContext };
+export { BookendProvider, useBookendContext };
