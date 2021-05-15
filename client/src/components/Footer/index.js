@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Footer = () => {
+
     return (
         <footer className='footer'>
             <div className='content is-flex is-justify-content-center-mobile'>
@@ -24,6 +25,7 @@ const Footer = () => {
                     </strong>
                 </a>
             </div>
+        
         </footer>
     );
 };

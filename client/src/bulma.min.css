@@ -13,7 +13,7 @@
   border-radius: 4px;
   box-shadow: none;
   display: inline-flex;
-  font-size: 1rem;
+  font-size: 1.6rem;
   height: 2.5em;
   justify-content: flex-start;
   line-height: 1.5;
@@ -311,7 +311,7 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Martel", serif !important;
 }
 
 code,
@@ -5348,7 +5348,8 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
   flex-shrink: 0;
 }
 .navbar-item img {
-  max-height: 1.75rem;
+  max-height: 400px;
+  max-width: 400px;
 }
 .navbar-item.has-dropdown {
   padding: 0;
@@ -9467,6 +9468,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .is-flex {
   display: flex !important;
+  justify-content: space-evenly;
 }
 
 @media screen and (max-width: 768px) {

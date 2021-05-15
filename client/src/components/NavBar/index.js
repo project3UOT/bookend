@@ -14,7 +14,7 @@ const AppNavbar = () => {
       <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand'>
           <a className='navbar-item is-family-heading is-size-2' href='/'>
-            Book End
+            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
           </a>
         </div>
 
