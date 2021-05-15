@@ -13,20 +13,22 @@ const AppNavbar = () => {
   return (
     <>
       <nav className='navbar' role='navigation' aria-label='main navigation'>
-        <div className='navbar-brand is-align-items-center'>
-          <a className='navbar-item' href='/'>
-            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
-          </a>
-          <a 
-          role='button' 
-          className={'navbar-burger px-4' + (showMobileNav ? ' is-active' : '')} 
-          aria-label='menu' 
-          aria-expanded='false'
+        <div className='navbar-brand'>
+          <a
+            role='button'
+            className={'navbar-burger px-4' + (showMobileNav ? ' is-active' : '')}
+            aria-label='menu'
+            aria-expanded='false'
             onClick={() => { setShowMobileNav(!showMobileNav) }}>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
           </a>
+          
+          <a className='navbar-item' href='/'>
+            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
+          </a>
+          
         </div>
 
         <div className={'navbar-menu navbar-end' + (showMobileNav ? ' is-active is-justify-content-center' : '')}>
@@ -43,10 +45,10 @@ const AppNavbar = () => {
                 </>
               ) : (
                   <>
-                    <button className='button is-primary is-size-4' onClick={() => setShowModal(true)}>
+                    <button className='button is-primary is-size-4 is-size-5-mobile' onClick={() => setShowModal(true)}>
                       <strong>Login</strong>
                     </button>
-                    <button className='button is-primary is-size-4' onClick={() => {
+                    <button className='button is-primary is-size-4 is-size-5-mobile' onClick={() => {
                       setShowModal(true);
                       setShowLogin(false);
                     }}>

@@ -5257,8 +5257,9 @@ body.has-navbar-fixed-bottom {
 
 .navbar-brand,
 .navbar-tabs {
-  align-items: stretch;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex-shrink: 0;
   min-height: 3.25rem;
 }
@@ -5354,7 +5355,7 @@ a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover, a.navbar-i
 }
 .navbar-item img {
   max-height: 7rem;
-  max-width: 75%;
+  max-width: 60vw;
 }
 .navbar-item.has-dropdown {
   padding: 0;
