@@ -19,7 +19,7 @@ const AppNavbar = () => {
           </a>
           <a 
           role='button' 
-          className={'navbar-burger' + (showMobileNav ? ' is-active' : '')} 
+          className={'navbar-burger px-4' + (showMobileNav ? ' is-active' : '')} 
           aria-label='menu' 
           aria-expanded='false'
             onClick={() => { setShowMobileNav(!showMobileNav) }}>

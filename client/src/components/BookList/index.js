@@ -19,10 +19,10 @@ const BookList = () => {
             title: 'Cloud Atlas',
             author: 'David Mitchell',
             id: 3,
-            read: true
+            read: false
         }
     ];
-    
+
     return (
         <div className='container py-5'>
             <h2 className='text-dark is-family-secondary is-size-2-widscreen is-size-3-desktop py-4'>My Books</h2>
