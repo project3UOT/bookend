@@ -53,14 +53,25 @@ const resolvers = {
 
         throw new AuthenticationError('You need to be logged in!');
       },
-      updateBook: async (parent, { book }, context) => {
+      updateBookRead: async (parent, { book }, context) => {
         if (context.user) {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id, "savedBooks.bookId": book.bookId },
-            { $set: { 
-              "savedBooks.$.read": book.read, 
-              "savedBooks.$.favourite": book.favourite
-            } },
+            { $set: { "savedBooks.$.read": book.read  } },
+            { new: true, runValidators: true }
+          );
+          return updatedUser;
+        }
+
+        throw new AuthenticationError('You need to be logged in!');
+      },
+      updateBookFavourite: async (parent, { book }, context) => {
+        if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id, "savedBooks.bookId": book.bookId },
+            {
+              $set: { "savedBooks.$.favourite": book.favourite }
+            },
             { new: true, runValidators: true }
           );
           return updatedUser;

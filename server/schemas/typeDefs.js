@@ -29,7 +29,15 @@ const typeDefs = gql`
     link: String
     read: Boolean
     favourite: Boolean
-  } 
+  }
+  input BookUpdateReadInput {
+    bookId : String
+    read: Boolean
+  }
+  input BookUpdateFavouriteInput {
+    bookId : String
+    favourite: Boolean
+  }
   type Auth {
     token: ID!
     user: User
@@ -41,7 +49,8 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveBook(book: BookInput!): User
-    updateBook(book: BookInput!): User
+    updateBookRead(book: BookUpdateReadInput!): User
+    updateBookFavourite(book: BookUpdateFavouriteInput!): User
     removeBook(bookId: ID!): User
   }
 `;
