@@ -1,8 +1,13 @@
 import React from 'react';
+import BookList from '../components/BookList';
+import ProfileNav from '../components/ProfileNav';
 
 const Profile = () => {
     return (
-        <p className='text-dark'>My books</p>
+        <>
+        <ProfileNav />
+        <BookList />
+        </>
     );
 };
 

@@ -4,7 +4,7 @@ const Footer = () => {
 
     return (
         <footer className='footer'>
-            <div className='content is-flex is-justify-content-center-mobile'>
+            <div className='content is-flex is-justify-content-space-evenly'>
 
                 <a href='/about' className='is-family-secondary is-size-4 pl-4'>
                     <strong>
