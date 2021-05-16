@@ -42,4 +42,32 @@ module.exports = {
     const token = signToken(user);
     res.json({ token, user });
   },
+  async addToCompletedBooks({ user, body }, res) {
+    console.log(user)
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { completedBooks: body } },
+        {  new: true, runValidators: true }
+      );
+      return res.json(updatedUser);
+    } catch (err) {
+      console.log(err)
+      return res.status(400).json(err);
+    }
+  },
+  async addBook({ user, body }, res) {
+    console.log(user)
+    try {
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: user._id },
+        { $addToSet: { booksToRead: body } },
+        {  new: true, runValidators: true }
+      );
+      return res.json(updatedUser);
+    } catch (err) {
+      console.log(err)
+      return res.status(400).json(err);
+    }
+  },
 };

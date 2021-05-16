@@ -60,27 +60,27 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveBook: async (parent, args, context) => {
-      console.log(args)
+    addToCompletedBooks: async (parent, { bookId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { savedBooks: args.bookData } },
+          { $push: { completedBooks: { bookId } } },
           { new: true }
         );
         return updatedUser;
       }
     },
-    removeBook: async (parent, { bookId }, context) => {
+    addBook: async (parent, { bookId }, context) => {
+      console.log(args)
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedBooks: { bookId } } },
-          { new: true }
-        );
-        return updatedUser;
+          const updatedUser = await User.findOneAndUpdate(
+              { _id: context.user._id },
+              { $push: { booksToRead: { bookId } } },
+              { new: true }
+          );
+          return updatedUser;
       }
-    }
+  },
   }
 };
 

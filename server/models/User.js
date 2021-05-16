@@ -21,8 +21,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-      // set savebooks to be an array of data
-      savedBooks: [bookSchema],
+    // set savebooks to be an array of data
+    completedBooks: [bookSchema],
+    booksToRead: [bookSchema],
+    addBook: [booksToRead],
   },
   {
     toJSON: {
@@ -48,7 +50,15 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 // query a user will also get another field called bookcount for number of saved books
 userSchema.virtual('bookCount').get(function () {
-  return this.savedBooks.length;
+  return this.completedBooks.length;
+});
+
+userSchema.virtual('toReadBookCount').get(function () {
+  return this.booksToRead.length;
+});
+
+userSchema.virtual('').get(function () {
+  return this.booksToRead.length;
 });
 
 const User = model('User', userSchema);
