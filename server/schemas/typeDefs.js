@@ -14,7 +14,7 @@ const typeDefs = gql`
     bookId: String
     title: String
     authors: [String]
-    description: String
+    genre: [String]
     image: String
     link: String
     read: Boolean
@@ -24,7 +24,7 @@ const typeDefs = gql`
     bookId : String
     title: String
     authors: [String]
-    description: String
+    genre: [String]
     image: String
     link: String
   } 

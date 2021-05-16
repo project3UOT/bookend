@@ -10,9 +10,9 @@ const bookSchema = new Schema({
       type: String,
     },
   ],
-  description: {
+  genre: [{
     type: String
-  },
+  }],
   bookId: {
     type: String,
     required: true,
