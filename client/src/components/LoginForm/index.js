@@ -6,7 +6,7 @@ import Auth from '../../utils/auth';
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
-  const [validated] = useState(false);
+  // const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const [login] = useMutation(LOGIN_USER);
@@ -46,7 +46,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <form noValidate validated={validated} onSubmit={handleFormSubmit}>
+      <form noValidate validated={"false"} onSubmit={handleFormSubmit}>
         <article 
         className=
         {'message is-danger is-justify-content-space-between is-align-items-center'
