@@ -13,7 +13,7 @@ db.once('open', async () => {
       authors:["Jennifer Gran"]
     },
     {
-      title: "",
+      title: "The Stand",
       link: "https://play.google.com/store/books/details?id=UbfnTcmkaKkC" ,
       bookId: "UbfnTcmkaKkC",
       image: "http://books.google.com/books/content?id=UbfnTcmkaKkC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
