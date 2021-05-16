@@ -42,9 +42,26 @@ mutation ($book: BookInput!) {
   }
 }`;
 
-export const UPDATE_BOOK = gql`
-mutation ($book: BookInput!) {
-  updateBook(book: $book) {
+export const UPDATE_BOOK_READ = gql`
+mutation ($book: BookUpdateReadInput!) {
+  updateBookRead(book: $book) {
+    _id
+    username
+    email
+    bookCount
+    savedBooks {
+      bookId
+      title
+      read
+      favourite
+    }
+  }
+}
+`
+
+export const UPDATE_BOOK_FAVOURITE = gql`
+mutation ($book: BookUpdateFavouriteInput!) {
+  updateBookFavourite(book: $book) {
     _id
     username
     email
