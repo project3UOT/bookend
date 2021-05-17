@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { searchGoogleBooks } from '../../utils/API';
+import BookResultCard from '../BookResultCard';
 
 const Results = () => {
 
@@ -9,6 +10,8 @@ const Results = () => {
     // create state for holding our search field data
     const [searchInput, setSearchInput] = useState('');
 
+    let searchedShow;
+
     // create method to search for books and set state on form submit
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -17,8 +20,33 @@ const Results = () => {
             return false;
         }
 
+        
         try {
-            const response = await searchGoogleBooks(searchInput);
+            const getMovieRequest = async (searchInput) => {
+                searchedShow = searchInput;
+
+                let movie0;
+                let movieGenre;
+                const url = `http://www.omdbapi.com/?t=${searchInput}&apikey=263d22d8`;
+
+                const response = await fetch(url);
+                const responseJson = await response.json();
+
+                if (responseJson) {
+                    setMovies(responseJson);
+                    console.log('response: ', responseJson);
+
+                    movie0 = responseJson;
+                    // get first genre from response
+                    movieGenre = (movie0.Genre.split(','))[0];
+                    console.log('genre: ', movieGenre);
+                };
+                return movieGenre;
+            };
+
+            const genre = await getMovieRequest(searchInput);
+
+            const response = await searchGoogleBooks(genre);
 
             if (!response.ok) {
                 throw new Error('something went wrong!');
@@ -30,23 +58,10 @@ const Results = () => {
                 bookId: book.id,
                 authors: book.volumeInfo.authors || ['No author to display'],
                 title: book.volumeInfo.title,
-                description: book.volumeInfo.description,
                 image: book.volumeInfo.imageLinks?.thumbnail || '',
                 genre: book.volumeInfo.categories || ['No Genre to display'],
             }));
 
-            const getMovieRequest = async (searchInput) => {
-                const url = `http://www.omdbapi.com/?s=${searchInput}&apikey=263d22d8`;
-
-                const response = await fetch(url);
-                const responseJson = await response.json();
-
-                if (responseJson.Search) {
-                    setMovies(responseJson.Search);
-                }
-            };
-
-            getMovieRequest(searchInput);
             setSearchedBooks(bookData);
             setSearchInput('');
 
@@ -81,35 +96,31 @@ const Results = () => {
             </section>
 
             <section>
-                {movies.map((movie) => (
+                <div className='container py-5'>
+                {/* {movies.map((movie) => (
                     <div className='image-container d-flex justify-content-start m-3'>
                         <img src={movie.Poster} alt=''></img>
 					Title: {movie.Title}
 					Type: {movie.Type}
                     </div>
-                ))}
-                <h2>
-                    {searchedBooks.length
-                        ? `Viewing ${searchedBooks.length} results:`
-                        : 'Search for a book to begin'}
-                </h2>
-                <section>
+                ))} */}
+                {searchedShow && <h2 className='text-dark'>`Viewing books like ${searchedShow}`</h2>}
+                <div className='columns'>
+
                     {searchedBooks.map((book) => {
                         return (
-                            <div key={book.bookId} border='dark'>
-                                {book.image ? (
-                                    <img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
-                                ) : null}
-                                <div>
-                                    <div>{book.title}</div>
-                                    <p className='small'>Authors: {book.authors}</p>
-                                    <div>{book.description}</div>
-                                    <div>Genre: {book.genre}</div>
-                                </div>
-                            </div>
+                            <>
+                            <BookResultCard 
+                                img={book.image}
+                                title={book.title}
+                                author={book.authors}
+                                key={book.bookId} />
+                            </>
                         );
                     })}
-                </section>
+                    </div>
+                
+                    </div>
             </section>
         </>
     );
