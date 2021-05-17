@@ -21,7 +21,9 @@
   "dependencies": {
     "apollo-boost": "^0.4.9",
     "apollo-server-express": "^2.19.1",
+    "icons": "^1.0.0",
     "if-env": "^1.0.4",
+    "react": "^17.0.2",
     "react-icons": "^4.2.0"
   },
   "devDependencies": {
