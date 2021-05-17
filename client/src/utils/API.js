@@ -30,6 +30,6 @@ export const loginUser = (userData) => {
 
 
 // make a search to api/  ADD API 
-export const searchExample = (query) => {
-  return fetch(` `);
+export const searchGoogleBooks = (query) => {
+  return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
 };
