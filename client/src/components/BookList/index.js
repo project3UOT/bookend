@@ -45,11 +45,12 @@ const BookList = () => {
         <div className='container py-5'>
             <h2 className='text-dark is-family-secondary is-size-2-widscreen is-size-3-desktop py-4'>My Books</h2>
 
-            <div className='columns'>
+            <div className='columns is-multiline'>
                 {
                     books.map(book => {
                         return (
                         <BookCard 
+                        fromSearch={false}
                         title={book.title}
                         author={book.author}
                         read={book.read}
