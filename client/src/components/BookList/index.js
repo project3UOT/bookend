@@ -50,6 +50,7 @@ const BookList = () => {
                     books.map(book => {
                         return (
                         <BookCard 
+                        fromSearch={false}
                         title={book.title}
                         author={book.author}
                         read={book.read}

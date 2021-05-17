@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
 import { 
     UPDATE_SEARCH_INPUT,
@@ -9,13 +9,7 @@ import { searchGoogleBooks } from '../../utils/API';
 const MovieSearchForm = () => {
     const [state, dispatch] = useBookendContext();
 
-    const { searchInput, movie, searchedBooks } = state;
-
-    // const [movie, setMovie] = useState('');
-    // // create state for holding returned google api data
-    // const [searchedBooks, setSearchedBooks] = useState([]);
-    // // create state for holding our search field data
-    // const [searchInput, setSearchInput] = useState('');
+    const { searchInput } = state;
 
     // create method to search for books and set state on form submit
     const handleFormSubmit = async (event) => {
@@ -68,9 +62,6 @@ const MovieSearchForm = () => {
                 image: book.volumeInfo.imageLinks?.thumbnail || '',
                 genre: book.volumeInfo.categories || ['No Genre to display'],
             }));
-
-            // setSearchedBooks(bookData);
-            // setSearchInput('');
 
             dispatch(
                 {
