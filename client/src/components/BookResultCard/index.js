@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaBookmark } from "react-icons/fa";
 
 const BookResultCard = ({ title, author, img, genre }) => {
     return (
@@ -11,6 +12,11 @@ const BookResultCard = ({ title, author, img, genre }) => {
                 <div className='card-content'>
                     <p className='title is-family-secondary is-4'>{title}</p>
                     <p className='subtitle is-6 text-dark'>{author}</p>
+                </div>
+                <div className='card-footer align-items-center'>
+                    <button className='button is-inverted'>
+                        <FaBookmark />  Save this book
+                    </button>
                 </div>
             </div>
         </div>
