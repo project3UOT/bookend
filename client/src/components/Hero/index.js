@@ -1,4 +1,5 @@
 import React from 'react';
+import MovieSearchForm  from '../MovieSearchForm';
 
 const Hero = () => {
     return (
@@ -11,14 +12,8 @@ const Hero = () => {
                     <h2 className='has-text-centered is-family-secondary is-size-3 is-size-5-touch has-background-primary p-4 mb-2 is-full-mobile'>Haven't read a book since highschool English class? Watched everything on Netflix? Enter your favourite TV show, and we'll recommend some books for you.</h2>
                     <div className='is-flex-direction-column is-align-items-center'>
 
-                        <div className='field has-addons'>
-                            <div className='control'>
-                                <input className='input is-large mr-2' type='text' placeholder='Enter a TV show or film' />
-                            </div>
-                            <div className='control'>
-                                <button className='button is-primary is-large'>Go</button>
-                            </div>
-                        </div>
+                        <MovieSearchForm />
+
                     </div>
                 </div>
 
