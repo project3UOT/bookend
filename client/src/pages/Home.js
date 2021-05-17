@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import Hero from '../components/Hero/index';
 import Genres from '../components/Genres';
+import SearchResults from '../components/SearchResults'
 import { idbPromise} from '../utils/helpers'
 const Home = () => {
     useEffect(()=> {
@@ -13,6 +14,7 @@ const Home = () => {
         <>
         <Hero />
         <Genres />
+        <SearchResults />
         </>
     );
 };
