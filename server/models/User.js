@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 // NEED TO IMPORT SCHEMA FROM MODELS
-const bookSchema = require('./Book');
+const Book = require('./Book');
 
 const userSchema = new Schema(
   {
@@ -21,7 +21,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    savedBooks: [bookSchema],
+    savedBooks: [Book.schema],
   },
   // set this to use virtual below
   {

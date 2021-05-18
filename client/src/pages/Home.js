@@ -4,7 +4,7 @@ import Genres from '../components/Genres';
 import { idbPromise} from '../utils/helpers'
 const Home = () => {
     useEffect(()=> {
-        idbPromise("booksToRead","get").then(results=>{
+        idbPromise("categories","get").then(results=>{
             console.log(results)
         })
 
