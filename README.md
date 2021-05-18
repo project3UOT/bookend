@@ -37,7 +37,7 @@ npm i mongodb
 ```
 
 ## Usage 
-Use thiis site to get great suggestions for books and Tv shows based on what you have previously watched or read
+Use this site to get great suggestions for books and Tv shows based on what you have previously watched or read
 
 ## Deployed application link
 (TBA)
