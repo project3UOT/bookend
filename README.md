@@ -15,6 +15,7 @@
 - [License](#license)
 - [Contributing](#contributing)
 - [Questions](#questions)
+- [Developers](#developers)
 
 ## Description
 Are you struggling to find a good book to read or show to watch? During lockdown good media that you can sink your teeth in can be hard to find. Bookend is a website that will recomend books and Tv Shows that you can watch based on your prefences. 
@@ -24,6 +25,14 @@ Are you struggling to find a good book to read or show to watch? During lockdown
 //Clone the repository to your local machine using: |
 
 git clone https://github.com/project3UOT/bookend.git
+
+//Install all dependcies by
+
+npm i 
+
+//Install mongodb
+
+npm i mongodb
 
 ```
 
@@ -40,7 +49,12 @@ Use thiis site to get great suggestions for books and Tv shows based on what you
 ## Contributing
 If you would like to contribute, please reach out to us. You can find our contact info in the "Questions?" section below.
 
-## Questions If you have any questions about the projects contact us at: uotcoding@gmail.com
+## Questions 
+If you have any questions about the projects contact us at: uotcoding@gmail.com
+
+## Developers 
+|Brad Spurell|Austin Dudzic|Brandon Burton|Amelia Wasowski|Samantha Brown|Taylor Van Scoy|Thomas Kyle|Zoha Mumtaz|
+|:---:|:---:|:---:|:---:|:---:|:---:|
 
 ## License
 This project is licensed under the MIT license.
