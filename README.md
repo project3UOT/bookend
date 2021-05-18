@@ -43,7 +43,14 @@ Use thiis site to get great suggestions for books and Tv shows based on what you
 (TBA)
 
 ## Langugages/Technology Used
-[ApolloGraphQl] (https://github.com/apollographql/apollo-client#readme) <br />
+[ApolloGraphQl](https://github.com/apollographql/apollo-client#readme) <br />
+[If-env](https://github.com/ericclemmons/if-env#readme) <br />
+[Mongodb](https://github.com/mongodb/node-mongodb-native) <br />
+[React-icons](https://github.com/react-icons/react-icons#readme) <br />
+[Node](https://nodejs.org/en/docs/) <br/>
+[Javascript](https://www.javascript.com/) <br />
+[CSS](https://www.w3schools.com/css/) <br />
+
 
 ## Screenshots
 
