@@ -2,6 +2,9 @@ import React from 'react';
 import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark } from "react-icons/fa";
 
 const BookCardFooter = ({ read, favourite, fromSearch }) => {
+    const handleSaveBook = () => {
+        console.log('book saved');
+    };
     return (
         <div className='card-footer align-items-center'>
             {fromSearch ? 
