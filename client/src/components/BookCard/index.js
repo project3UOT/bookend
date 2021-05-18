@@ -7,7 +7,7 @@ const BookCard = ({ title, author, img, read, favourite, fromSearch }) => {
 
         <div className='card'>
             <div className='card-image'>
-                    <img src={img || 'https://via.placeholder.com/500x500'} alt='book cover'/>
+                    <img src={img || 'https://via.placeholder.com/500x500'} alt={`${title} book cover`}/>
             </div>
                 <div className='card-content'>
                     <p className='title is-family-secondary is-4'>{title}</p>
