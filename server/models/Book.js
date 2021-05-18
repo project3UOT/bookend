@@ -1,5 +1,4 @@
 const { Schema } = require('mongoose');
-const mongoose = require("mongoose")
 
 // This is a subdocument schema, it won't become its own
 // model but we'll use it as the schema for the User's 
@@ -11,10 +10,9 @@ const bookSchema = new Schema({
       type: String,
     },
   ],
-  description: {
-    type: String,
-    required: true,
-  },
+  genre: [{
+    type: String
+  }],
   bookId: {
     type: String,
     required: true,
@@ -29,8 +27,16 @@ const bookSchema = new Schema({
     type: String,
     required: true,
   },
+  read: {
+    type: Boolean,
+    default: false,
+    required: true
+  },
+  favourite: {
+    type: Boolean,
+    default: false,
+    required: true
+  }
 });
 
-const Book = mongoose.model("Book", bookSchema)
-
-module.exports = Book;
+module.exports = bookSchema;
