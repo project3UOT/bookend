@@ -17,7 +17,8 @@ const BookCard = ({ title, author, img, read, favourite, fromSearch }) => {
             <BookCardFooter 
                 read={read}
                 favourite={favourite}
-                fromSearch={fromSearch} />
+                fromSearch={fromSearch}
+                title={title} />
         </div>
         </div>
     );
