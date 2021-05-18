@@ -3,7 +3,7 @@ import { useBookendContext } from "../../utils/GlobalState";
 import BookCard from '../BookCard';
 
 const Results = () => {
-    const [state ] = useBookendContext();
+    const [state] = useBookendContext();
     const { movie, searchedBooks } = state;
 
     return (
@@ -14,17 +14,13 @@ const Results = () => {
 
                 {searchedBooks.map((book) => {
                     return (
-                        <>
-                            <BookCard
-                                bookId={book.bookId}
-                                fromSearch={true}
-                                img={book.image}
-                                title={book.title}
-                                author={book.authors}
-                                key={book.bookId}
-                                read={false}
-                                favourite={false} />
-                        </>
+                        <BookCard
+                            bookId={book.bookId}
+                            fromSearch={true}
+                            img={book.image}
+                            title={book.title}
+                            author={book.authors}
+                            key={book.bookId} />
                     );
                 })}
             </div>
