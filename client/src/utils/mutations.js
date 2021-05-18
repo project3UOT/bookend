@@ -86,7 +86,6 @@ mutation ($bookId: ID!) {
       bookId
         title
         authors
-        description
         image
         link
         read
