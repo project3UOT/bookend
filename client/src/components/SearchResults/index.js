@@ -1,10 +1,14 @@
 import React from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { GET_ME } from '../../utils/queries';
 import BookCard from '../BookCard';
 
 const Results = () => {
     const [state] = useBookendContext();
     const { movie, searchedBooks } = state;
+    const { loading, data } = useQuery(GET_ME);
+    const userData = data?.me;
 
     return (
         <section className='container py-5'>
@@ -15,6 +19,7 @@ const Results = () => {
                 {searchedBooks.map((book) => {
                     return (
                         <BookCard
+                            saved={userData.savedBooks.find((savedBook) => savedBook.bookId === book.bookId)}
                             bookId={book.bookId}
                             fromSearch={true}
                             img={book.image}
