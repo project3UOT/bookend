@@ -16,6 +16,7 @@ const Results = () => {
                     return (
                         <>
                             <BookCard
+                                bookId={book.bookId}
                                 fromSearch={true}
                                 img={book.image}
                                 title={book.title}

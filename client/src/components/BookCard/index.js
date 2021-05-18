@@ -1,7 +1,7 @@
 import React from 'react';
 import BookCardFooter from '../BookCardFooter';
 
-const BookCard = ({ title, author, img, read, favourite, fromSearch }) => {
+const BookCard = ({ bookId, title, author, img, read, favourite, fromSearch }) => {
     return (
         <div className='column is-2-desktop is-4-tablet'>
 
@@ -17,7 +17,8 @@ const BookCard = ({ title, author, img, read, favourite, fromSearch }) => {
             <BookCardFooter 
                 read={read}
                 favourite={favourite}
-                fromSearch={fromSearch} />
+                fromSearch={fromSearch}
+                bookId={bookId} />
         </div>
         </div>
     );
