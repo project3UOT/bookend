@@ -57,10 +57,13 @@ const MovieSearchForm = () => {
 
             const bookData = items.map((book) => ({
                 bookId: book.id,
-                authors: book.volumeInfo.authors || ['No author to display'],
                 title: book.volumeInfo.title,
-                image: book.volumeInfo.imageLinks?.thumbnail || '',
+                authors: book.volumeInfo.authors || ['No author to display'],
                 genre: book.volumeInfo.categories || ['No Genre to display'],
+                image: book.volumeInfo.imageLinks?.thumbnail || '',
+                link: '',
+                read: false,
+                favourite: false
             }));
 
             dispatch(

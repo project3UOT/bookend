@@ -4,7 +4,8 @@ import {
     UPDATE_CURRENT_CATEGORY,
     UPDATE_SEARCH_INPUT, 
     UPDATE_MOVIE, 
-    UPDATE_SEARCHED_BOOKS } from './actions';
+    UPDATE_SEARCHED_BOOKS,
+    UPDATE_SAVED_BOOKS } from './actions';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -27,6 +28,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 searchedBooks: action.searchedBooks
+            };
+        case UPDATE_SAVED_BOOKS:
+            return {
+                ...state,
+                savedBooks: action.savedBooks
             };
         default:
             return state;
