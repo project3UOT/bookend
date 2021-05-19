@@ -50,6 +50,7 @@ const BookList = () => {
                             <BookCard
                                 fromSearch={false}
                                 title={book.title}
+                                img={book.image}
                                 author={book.authors}
                                 read={book.read}
                                 favourite={book.favourite}
