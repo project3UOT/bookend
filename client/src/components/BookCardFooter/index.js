@@ -9,7 +9,7 @@ import {
     UPDATE_BOOK_FAVOURITE } from '../../utils/mutations';
 import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark } from "react-icons/fa";
 
-const BookCardFooter = ({ read, favourite, fromSearch, bookId, saved }) => {
+const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) => {
     const [state] = useBookendContext();
     const { searchedBooks } = state;
 
@@ -92,8 +92,8 @@ const BookCardFooter = ({ read, favourite, fromSearch, bookId, saved }) => {
                         }}>
                 <FaHeart />
             </button>
-            <a href='/' 
-                className='button is-inverted is-primary'>
+            <a href={`https://www.amazon.com/s?k=${title}+book`}target="_blank" className='button is-inverted is-primary'>
+
                 <FaExternalLinkSquareAlt />
             </a>
             </>

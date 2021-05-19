@@ -19,6 +19,7 @@ const BookCard = ({ bookId, title, author, img, read, favourite, fromSearch, sav
                 saved={saved}
                 favourite={favourite}
                 fromSearch={fromSearch}
+                title={title} />
                 bookId={bookId} />
         </div>
         </div>
