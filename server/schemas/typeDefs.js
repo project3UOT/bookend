@@ -7,27 +7,41 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    bookCount: Int
+    savedBooks: [Book]
   }
-  type example {
+  type Book {
     bookId: String
+    title: String
     authors: [String]
-    description: String
+    genre: [String]
     image: String
     link: String
+    read: Boolean
+    favourite: Boolean
+  }
+  input BookInput {
+    bookId : String
     title: String
+    authors: [String]
+    genre: [String]
+    image: String
+    link: String
+    read: Boolean
+    favourite: Boolean
+  }
+  input BookUpdateReadInput {
+    bookId : String
+    read: Boolean
+  }
+  input BookUpdateFavouriteInput {
+    bookId : String
+    favourite: Boolean
   }
   type Auth {
     token: ID!
     user: User
   }
-  input BookInput {
-    bookId : String
-    authors: [String]
-    description: String
-    title: String
-    image: String
-    link: String
-  } 
   type Query {
     me: User
   }
@@ -35,7 +49,9 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveBook(book: BookInput!): User
-    removeBook(bookId: String!): User
+    updateBookRead(book: BookUpdateReadInput!): User
+    updateBookFavourite(book: BookUpdateFavouriteInput!): User
+    removeBook(bookId: ID!): User
   }
 `;
 

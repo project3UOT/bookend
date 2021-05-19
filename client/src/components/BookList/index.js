@@ -1,60 +1,61 @@
 import React from 'react';
 import BookCard from '../BookCard';
+import { useBookendContext } from "../../utils/GlobalState";
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { GET_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
 
 const BookList = () => {
-    const books = [
-        {
-            title: 'Pride and Prejudice',
-            author: 'Jane Austen',
-            id: 1,
-            read: true,
-            favourite: true
-        },
-        {
-            title: 'Normal People',
-            author: 'Sally Rooney',
-            id: 2,
-            read: true,
-            favourite: true
-        },
-        {
-            title: 'Cloud Atlas',
-            author: 'David Mitchell',
-            id: 3,
-            read: true,
-            favourite: false
-        },
-        {
-            title: 'Jane Eyre',
-            author: 'Charlotte Bronte',
-            id: 4,
-            read: false,
-            favourite: false
-        },
-        {
-            title: 'The Stranger',
-            author: 'Albert Camus',
-            id: 5,
-            read: true,
-            favourite: false
-        }
+    const [state] = useBookendContext();
+    const { currentCategory } = state;
+    const { loading, data } = useQuery(GET_ME);
+    const userData = data?.me;
 
-    ];
+
+    if (loading) {
+        return (
+            <div className='container py-5'>
+                <h2 className='text-dark is-family-secondary is-size-2-widscreen is-size-3-desktop py-4'>loading..</h2>
+            </div>
+        );
+    }
+
+    const filterBooks = () => {
+        switch (currentCategory) {
+            case 'Reading List':
+                return userData.savedBooks.filter(book => book.read === false);
+            case 'Read':
+                return userData.savedBooks.filter(book => book.read === true );
+            case 'Favourites':
+                return userData.savedBooks.filter(book => book.favourite === true);
+            default:
+                return userData.savedBooks;
+        }
+    };
 
     return (
         <div className='container py-5'>
             <h2 className='text-dark is-family-secondary is-size-2-widscreen is-size-3-desktop py-4'>My Books</h2>
 
-            <div className='columns'>
+            <h2>
+                {userData.bookCount
+                    ? `Viewing ${userData.bookCount} saved ${userData.bookCount === 1 ? 'book' : 'books'}:`
+                    : "You haven't saved any books yet!"}
+            </h2>
+            <div className='columns is-multiline'>
                 {
-                    books.map(book => {
+                    filterBooks().map(book => {
+                        console.log(book, 'id', book.bookId);
                         return (
-                        <BookCard 
-                        title={book.title}
-                        author={book.author}
-                        read={book.read}
-                        favourite={book.favourite}
-                        key={book.id}/>
+                            <BookCard
+                                fromSearch={false}
+                                title={book.title}
+                                img={book.image}
+                                author={book.authors}
+                                read={book.read}
+                                favourite={book.favourite}
+                                bookId={book.bookId}
+                                key={book.bookId} />
                         )
                     })
                 }
