@@ -2,6 +2,7 @@ import React from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { GET_ME } from '../../utils/queries';
+import Auth from '../../utils/auth';
 import BookCard from '../BookCard';
 
 const Results = () => {
@@ -19,7 +20,7 @@ const Results = () => {
                 {searchedBooks.map((book) => {
                     return (
                         <BookCard
-                            saved={userData.savedBooks.find((savedBook) => savedBook.bookId === book.bookId)}
+                            saved={ Auth.loggedIn() && userData.savedBooks.find((savedBook) => savedBook.bookId === book.bookId)}
                             bookId={book.bookId}
                             fromSearch={true}
                             img={book.image}

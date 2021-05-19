@@ -67,7 +67,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, bookId, saved }) => {
 
     return (
         <div className='card-footer align-items-center'>
-            {fromSearch ? 
+            {fromSearch && Auth.loggedIn() ? 
                 <button 
                     className='button is-inverted is-primary'
                     disabled={saved}
