@@ -4,7 +4,8 @@ import { useBookendContext } from "../../utils/GlobalState";
 import Results from '../SearchResults';
 import {
     UPDATE_SEARCH_INPUT,
-    UPDATE_SEARCHED_BOOKS
+    UPDATE_SEARCHED_BOOKS,
+    UPDATE_MOVIE
 } from '../../utils/actions';
 
 const genres = ['Horror', 'Comedy', 'Sci-Fi', 'Fantasy', 'Thriller', 'Romance', 'Mystery'];
@@ -47,6 +48,10 @@ const Genres = () => {
                 {
                     type: UPDATE_SEARCH_INPUT,
                     searchInput: ''
+                },
+                {
+                    type: UPDATE_MOVIE,
+                    movie: ''
                 }
             );
 
@@ -54,6 +59,7 @@ const Genres = () => {
             console.error(err);
         }
     };
+
     return (
         <section className='section'>
             <h2 className='has-text-centered is-family-secondary is-size-3 text-dark mb-2'>Or, pick a genre</h2>
@@ -74,7 +80,6 @@ const Genres = () => {
                             {genre}
                         </button>)}
                 </form>
-            <Results />
         </section>
     );
 };
