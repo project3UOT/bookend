@@ -4006,6 +4006,7 @@ a.tag:hover {
   position: relative;
 }
 .card-image:first-child img {
+  width: 100%;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
 }
