@@ -7,7 +7,10 @@ const { Provider } = BookendContext;
 const BookendProvider = ({ value = [], ...props }) => {
     const [state, dispatch] = useBookendReducer({
         categories: ['All', 'Reading List', 'Read', 'Favourites'],
-        currentCategory: 'All'
+        currentCategory: 'All',
+        searchInput: '',
+        movie: '',
+        searchedBooks: []
     });
     // use this to confirm it works!
     console.log(state);
