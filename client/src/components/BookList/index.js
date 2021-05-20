@@ -1,7 +1,7 @@
 import React from 'react';
 import BookCard from '../BookCard';
 import { useBookendContext } from "../../utils/GlobalState";
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { GET_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 

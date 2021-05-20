@@ -31,8 +31,7 @@ const MovieSearchForm = () => {
                 if (responseJson) {
                     console.log('response: ', responseJson);
                     movie0 = responseJson;
-                    //setMovie(movie0.Title);
-
+                    
                         dispatch({
                             type: UPDATE_MOVIE,
                             movie: movie0.Title
