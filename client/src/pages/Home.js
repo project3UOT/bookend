@@ -5,7 +5,7 @@ import SearchResults from '../components/SearchResults'
 import { idbPromise} from '../utils/helpers'
 const Home = () => {
 
-    const scrollToDiv = (ref) => window.scrollTo({
+    const scrollToResults = (ref) => window.scrollTo({
         top: ref.current.offsetTop,
         left: 0,
         behavior: 'smooth'});
@@ -14,16 +14,16 @@ const Home = () => {
     const results = useRef();
 
     useEffect(()=> {
-        idbPromise("booksToRead","get").then(results=>{
-            console.log(results)
+        idbPromise('booksToRead', 'get').then(results=>{
+            console.log(results);
         })
 
     },[])
 
     return (
         <>
-        <Hero reference={hero} scroll={() => scrollToDiv(results)} />
-        <Genres reference={genres} scroll={() => scrollToDiv(results)} />
+        <Hero reference={hero} scroll={() => scrollToResults(results)} />
+        <Genres reference={genres} scroll={() => scrollToResults(results)} />
         <SearchResults reference={results} />
         </>
     );
