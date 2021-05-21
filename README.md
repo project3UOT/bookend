@@ -40,7 +40,7 @@ npm i mongodb
 Use this site to get great suggestions for books and Tv shows based on what you have previously watched or read
 
 ## Deployed application link
-(TBA)
+[Bookend](http://bookend-recommendations.herokuapp.com/)
 
 ## Langugages/Technology Used
 [ApolloGraphQl](https://github.com/apollographql/apollo-client#readme) <br />
@@ -63,7 +63,6 @@ If you have any questions about the projects contact us at: uotcoding@gmail.com
 ## Developers 
 |Brad Spurell|Austin Dudzic|Brandon Burton|Amelia Wasowski|Samantha Brown|Taylor Van Scoy|Thomas Kyle|Zoha Mumtaz|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-
 ## License
 This project is licensed under the MIT license.
 
