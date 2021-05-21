@@ -78,6 +78,8 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                 </button>
              : 
              <>
+             {Auth.loggedIn() &&
+             <>
              <button 
                 className={'button is-inverted' + (read ? ' is-secondary' : ' is-primary')}
                         onClick={() => {
@@ -92,6 +94,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         }}>
                 <FaHeart />
             </button>
+            </>}
             <a href={`https://www.amazon.com/s?k=${title}+book`}target="_blank" className='button is-inverted is-primary'>
 
                 <FaExternalLinkSquareAlt />
