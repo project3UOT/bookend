@@ -9,8 +9,9 @@ const Home = () => {
         top: ref.current.offsetTop,
         left: 0,
         behavior: 'smooth'});
-    const el1 = useRef();
-    const el2 = useRef();
+    const hero = useRef();
+    const genres = useRef();
+    const results = useRef();
 
     useEffect(()=> {
         idbPromise("booksToRead","get").then(results=>{
@@ -21,9 +22,9 @@ const Home = () => {
 
     return (
         <>
-        <Hero reference={el1} scroll={() => scrollToDiv(el2)} />
-        <Genres />
-        <SearchResults reference={el2} />
+        <Hero reference={hero} scroll={() => scrollToDiv(results)} />
+        <Genres reference={genres} scroll={() => scrollToDiv(results)} />
+        <SearchResults reference={results} />
         </>
     );
 };
