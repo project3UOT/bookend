@@ -1,13 +1,14 @@
 import React from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
 import Auth from '../../utils/auth';
+import { idbPromise } from '../../utils/helpers';
 import { useMutation } from '@apollo/react-hooks';
 import { 
     SAVE_BOOK,
     REMOVE_BOOK,
     UPDATE_BOOK_READ,
     UPDATE_BOOK_FAVOURITE } from '../../utils/mutations';
-import { UPDATE_SAVED_BOOKS } from '../../utils/actions';
+import { UPDATE_SAVED_BOOKS, UPDATE_READ, UPDATE_FAVOURITE } from '../../utils/actions';
 import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark } from "react-icons/fa";
 
 const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) => {
@@ -39,27 +40,39 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         type: UPDATE_SAVED_BOOKS,
                         savedBooks: [...savedBooks, selectedBook]
                     })
-                    console.log('saved books', savedBooks);
+                    idbPromise('savedBooks', 'put', selectedBook);
                     break;
                 case 'read':
+                    const newReadStatus = !read;
                     await updateBookRead({
                         variables: { 
                             "book": { 
                                 "bookId": bookId,
-                                "read": !read
+                                "read": newReadStatus
                             } 
                         }
                     });
+                    dispatch({
+                        type: UPDATE_READ,
+                        bookId: bookId,
+                        read: newReadStatus
+                    })
                     break;
                 case 'favourite':
+                    const newFavouriteStatus = !favourite;
                     await updateBookFavourite({
                         variables: {
                             "book": {
                                 "bookId": bookId,
-                                "favourite": !favourite
+                                "favourite": newFavouriteStatus
                             }
                         }
                     });
+                    dispatch({
+                        type: UPDATE_FAVOURITE,
+                        bookId: bookId,
+                        favourite: newFavouriteStatus
+                    })
                     break;
             }
         } catch (err) {
@@ -69,7 +82,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
     };
 
     return (
-        <div className='card-footer is-justify-content-center align-items-center'>
+        <div className='card-footer is-justify-content-center align-items-center p-2'>
             {fromSearch && Auth.loggedIn() ? 
                 <button 
                     className='button is-inverted is-primary'
