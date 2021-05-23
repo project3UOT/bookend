@@ -63,7 +63,7 @@ const Genres = ({ reference, scroll }) => {
 
     return (
         <section className='section' ref={reference}>
-            <h2 className='has-text-centered is-family-secondary is-size-3 text-dark mb-2'>Or, pick a genre</h2>
+            <h2 className='has-text-centered is-family-secondary is-size-3 mb-2'>Or, pick a genre</h2>
             <form className='buttons is-centered' onSubmit={handleFormSubmit}>
                     {genres.map(genre =>
                         <button

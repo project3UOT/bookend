@@ -9,7 +9,7 @@ const Results = ({ reference }) => {
     return (
         <section className='container py-5' ref={reference}>
 
-            {movie && <h2 className='text-dark is-family-secondary is-size-3 is-size-5-touch mb-3'>{`Books like ${movie}`}</h2>}
+            {movie && <h2 className='is-family-secondary is-size-3 is-size-5-touch mb-3'>{`Books like ${movie}`}</h2>}
             <div className='columns is-multiline'>
 
                 {searchedBooks.map(book => {

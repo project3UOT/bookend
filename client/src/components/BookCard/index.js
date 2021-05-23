@@ -10,8 +10,8 @@ const BookCard = ({ bookId, title, author, img, read, favourite, fromSearch, sav
                     <img src={img || 'https://via.placeholder.com/500x500'} alt={`${title} book cover`}/>
             </div>
                 <div className='card-content'>
-                    <p className='title is-family-secondary is-4'>{title}</p>
-                    <p className='subtitle is-6 text-dark'>{author}</p>
+                    <p className='title is-family-secondary is-size-4'>{title}</p>
+                    <p className='subtitle is-size-6'>{author}</p>
                 </div>
             
             <BookCardFooter 
