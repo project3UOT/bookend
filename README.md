@@ -1,9 +1,5 @@
 # Bookend - End Boredom
 
-![GitHub license](https://img.shields.io/badge/license-MIT-ff69b4.svg)
-
-![GitHub license](https://img.shields.io/badge/license-MIT-ff69b4.svg)
-
 ## Table of Contents 
 
 - [Description](#description)
@@ -58,6 +54,9 @@ If you would like to contribute, please reach out to us. You can find our contac
 ## Questions If you have any questions about the project, contact us at: uotcoding@gmail.com
 
 ## License
+
+![GitHub license](https://img.shields.io/badge/license-MIT-ff69b4.svg)
+
 This project is licensed under the MIT license.
 
 Copyright (c) 2021 https://github.com/Bookend
