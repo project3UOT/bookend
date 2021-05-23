@@ -21,7 +21,7 @@ const Home = () => {
     const [ , dispatch] = useBookendContext();
     
     const { loading, data } = useQuery(GET_ME);
-    const userData = data?.me;
+    const userData = data?.me
 
     useEffect(() => {
         if (userData) {
