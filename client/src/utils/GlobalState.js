@@ -13,8 +13,6 @@ const BookendProvider = ({ value = [], ...props }) => {
         searchedBooks: [],
         savedBooks: []
     });
-    // use this to confirm it works!
-    console.log(state);
     return <Provider value={[state, dispatch]} {...props} />;
 };
 
