@@ -20,7 +20,7 @@ const BookList = () => {
         if (savedBooks.length === 0) {
             getSavedBooks();
         }
-    }, [savedBooks, dispatch])
+    }, [savedBooks.length, dispatch])
 
     const filterBooks = () => {
         switch (currentCategory) {
