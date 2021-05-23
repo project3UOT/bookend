@@ -1,4 +1,4 @@
-# Bookend - Curated to your taste
+# Bookend - End Boredom
 
 ![GitHub license](https://img.shields.io/badge/license-MIT-ff69b4.svg)
 
@@ -36,6 +36,7 @@ Use thiis site to get great suggestions for books and Tv shows based on what you
 ## Langugages/Technology Used
 
 ## Screenshots
+- ![BookEnd](https://user-images.githubusercontent.com/71106177/119247106-155d9180-bb55-11eb-8cfc-9777d0972e66.png)
 
 ## Contributing
 If you would like to contribute, please reach out to us. You can find our contact info in the "Questions?" section below.
