@@ -51,7 +51,7 @@ request.onsuccess = function(e) {
       };
       break;
     case 'delete':
-      store.delete(object.bookId);
+      store.delete(object);
       break;
     default:
       console.log('No valid method');
