@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_ME } from '../utils/queries';
 import { useBookendContext } from "../utils/GlobalState";
 import { UPDATE_SAVED_BOOKS } from '../utils/actions';
-import { idbPromise } from '../utils/helpers'
+import { idbPromise } from '../utils/helpers';
 const Home = () => {
 
     const scrollToResults = (ref) => window.scrollTo({
@@ -25,6 +25,7 @@ const Home = () => {
 
     useEffect(() => {
         if (userData) {
+            console.log('dispatching...')
             dispatch({
                 type: UPDATE_SAVED_BOOKS,
                 savedBooks: userData.savedBooks

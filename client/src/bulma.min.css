@@ -4606,6 +4606,10 @@ button.dropdown-item.is-active {
   position: relative;
   z-index: 30;
 }
+.navbar button {
+  background: none;
+  border: none;
+}
 .navbar.is-white {
   background-color: white;
   color: #0a0a0a;
@@ -6047,7 +6051,8 @@ label.panel-block:hover {
   overflow-x: auto;
   white-space: nowrap;
 }
-.tabs a {
+.tabs a, .tabs button {
+  font-family: "Martel", serif;
   align-items: center;
   border-bottom-color: #dbdbdb;
   border-bottom-style: solid;
@@ -6059,14 +6064,14 @@ label.panel-block:hover {
   padding: 0.5em 1em;
   vertical-align: top;
 }
-.tabs a:hover {
+.tabs a:hover, .tabs button:hover {
   border-bottom-color: #363636;
   color: #363636;
 }
 .tabs li {
   display: block;
 }
-.tabs li.is-active a {
+.tabs li.is-active a, .tabs li.is-active button {
   border-bottom-color: white;
   color: white;
 }
@@ -6105,15 +6110,15 @@ label.panel-block:hover {
 .tabs.is-right ul {
   justify-content: flex-end;
 }
-.tabs.is-boxed a {
+.tabs.is-boxed a, .tabs.is-boxed button {
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
 }
-.tabs.is-boxed a:hover {
+.tabs.is-boxed a:hover, .tabs.is-boxed button:hover {
   background-color: whitesmoke;
   border-bottom-color: #dbdbdb;
 }
-.tabs.is-boxed li.is-active a {
+.tabs.is-boxed li.is-active a, .tabs.is-boxed li.is-active button {
   background-color: white;
   border-color: #dbdbdb;
   border-bottom-color: transparent !important;
@@ -6122,14 +6127,14 @@ label.panel-block:hover {
   flex-grow: 1;
   flex-shrink: 0;
 }
-.tabs.is-toggle a {
+.tabs.is-toggle a, .tabs.is-toggle button {
   border-color: #dbdbdb;
   border-style: solid;
   border-width: 1px;
   margin-bottom: 0;
   position: relative;
 }
-.tabs.is-toggle a:hover {
+.tabs.is-toggle a:hover, .tabs.is-toggle button:hover {
   background-color: whitesmoke;
   border-color: #b5b5b5;
   z-index: 2;
@@ -6145,7 +6150,7 @@ label.panel-block:hover {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
-.tabs.is-toggle li.is-active a {
+.tabs.is-toggle li.is-active a, .tabs.is-toggle li.is-active button {
   background-color: white;
   border-color: white;
   color: rgba(0, 0, 0, 0.7);
@@ -6154,7 +6159,7 @@ label.panel-block:hover {
 .tabs.is-toggle ul {
   border-bottom: none;
 }
-.tabs.is-toggle.is-toggle-rounded li:first-child a {
+.tabs.is-toggle.is-toggle-rounded li:first-child a, .tabs.is-toggle.is-toggle-rounded li button {
   border-bottom-left-radius: 290486px;
   border-top-left-radius: 290486px;
   padding-left: 1.25em;
