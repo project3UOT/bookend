@@ -17,23 +17,37 @@
 - [Questions](#questions)
 
 ## Description
-Are you struggling to find a good book to read or show to watch? During lockdown good media that you can sink your teeth in can be hard to find. Bookend is a website that will recomend books and Tv Shows that you can watch based on your prefences. 
+Are you struggling to find a good book to read and have exausted your options to find the best one for you? During lockdown good media that you can sink your teeth into can be hard to find. Bookend is a website that will recommend books based on your TV prefences. Select a genre, or enter in a specific show, and BookEnd will find the perfect book for you!
 
 ## Installation
-```
-//Clone the repository to your local machine using: |
 
-git clone https://github.com/project3UOT/bookend.git
+First, clone the repository to your local machine.
 
-```
+Then you will need to npm install once cloned.
+
+Lastly, npm start to have the website load up.
 
 ## Usage 
-Use thiis site to get great suggestions for books and Tv shows based on what you have previously watched or read
+Use thiis site to get great suggestions for books and Tv shows based on what you have previously watched or read.
 
 ## Deployed application link
-(TBA)
+
+Heroku - http://bookend-recommendations.herokuapp.com/
 
 ## Langugages/Technology Used
+
+React - HTML and CSS/Front end.
+
+MongoDB/Mongoose ODM - Database.
+
+API - Google books and Movie database API.
+
+PWA - for service workers, installability and manifest.
+
+GraphQL, Node.js and Express.js servers.
+
+Queries and mutations - retrieving, adding, updating, and deleting data.
+
 
 ## Screenshots
 - ![BookEnd](https://user-images.githubusercontent.com/71106177/119247106-155d9180-bb55-11eb-8cfc-9777d0972e66.png)
@@ -41,7 +55,7 @@ Use thiis site to get great suggestions for books and Tv shows based on what you
 ## Contributing
 If you would like to contribute, please reach out to us. You can find our contact info in the "Questions?" section below.
 
-## Questions If you have any questions about the projects contact us at: uotcoding@gmail.com
+## Questions If you have any questions about the project, contact us at: uotcoding@gmail.com
 
 ## License
 This project is licensed under the MIT license.
