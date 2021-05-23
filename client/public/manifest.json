@@ -1,5 +1,6 @@
 {
   "short_name": "Book End",
+  "description": "An app that recommends books based on users favourite filmsand TV shows",
   "name": "Book End",
   "icons": [
     {
@@ -13,7 +14,7 @@
       "sizes": "192x192"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#3a3e50",
   "background_color": "#ffffff"
