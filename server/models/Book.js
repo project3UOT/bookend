@@ -13,6 +13,10 @@ const bookSchema = new Schema({
   genre: [{
     type: String
   }],
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
   bookId: {
     type: String,
     required: true,

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
 import { 
     UPDATE_SEARCH_INPUT,
@@ -14,6 +14,8 @@ const MovieSearchForm = ({ reference, scroll }) => {
     // create method to search for books and set state on form submit
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
+        document.querySelector('[name="searchInput"]').value = '';
 
         if (!searchInput) {
             return false;
@@ -93,7 +95,6 @@ const MovieSearchForm = ({ reference, scroll }) => {
                 type='text' 
                 placeholder='Enter a TV show or film' 
                 name='searchInput'
-                value={searchInput}
                 onChange={e => {
                     dispatch({
                         type: UPDATE_SEARCH_INPUT,

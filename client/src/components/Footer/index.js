@@ -12,11 +12,6 @@ const Footer = () => {
                         About Us
                     </strong>
                 </Link>
-                <Link to='contact' className='is-family-secondary is-size-4 pl-4'>
-                    <strong>
-                        Contact
-                    </strong>
-                </Link>
                 <a
                     href='https://github.com/project3UOT/bookend' className='is-family-secondary is-size-4 pl-4'
                     target='_blank'

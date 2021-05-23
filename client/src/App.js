@@ -9,7 +9,6 @@ import { BookendProvider } from './utils/GlobalState';
 // IMPORT PAGES HERE 
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact';
 import Profile from './pages/Profile';
 
 const client = new ApolloClient({
@@ -32,7 +31,6 @@ function App() {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
-            <Route exact path='/contact' component={Contact} />
             <Route exact path='/profile' component={Profile} />
             <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
           </Switch>

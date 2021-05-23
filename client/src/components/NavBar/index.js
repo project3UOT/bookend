@@ -14,22 +14,19 @@ const AppNavbar = () => {
   return (
     <>
       <nav className='navbar' role='navigation' aria-label='main navigation'>
-        <div className='navbar-brand'>
-          <a
-            role='button'
-            className={'navbar-burger px-4' + (showMobileNav ? ' is-active' : '')}
+        <div className='navbar-brand p-2'>
+          <Link className='navbar-item' to='/'>
+            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
+          </Link>
+          <button
+            className={'navbar-burger' + (showMobileNav ? ' is-active' : '')}
             aria-label='menu'
             aria-expanded='false'
             onClick={() => { setShowMobileNav(!showMobileNav) }}>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
-          </a>
-          
-          <a className='navbar-item' href='/'>
-            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
-          </a>
-          
+          </button>
         </div>
 
         <div className={'navbar-menu navbar-end' + (showMobileNav ? ' is-active is-justify-content-center' : '')}>
@@ -71,10 +68,10 @@ const AppNavbar = () => {
             <div className='tabs is-boxed is-fullwidth mb-0'>
               <ul>
                 <li className={showLogin ? 'is-active' : ''}>
-                  <a className='has-text-primary' onClick={() => setShowLogin(true)}>Login</a>
+                  <button className='has-text-primary' onClick={() => setShowLogin(true)}>Login</button>
                 </li>
                 <li className={showLogin ? '' : 'is-active'}>
-                  <a className='has-text-primary' onClick={() => setShowLogin(false)}>Sign Up</a>
+                  <button className='has-text-primary' onClick={() => setShowLogin(false)}>Sign Up</button>
                 </li>
               </ul>
             </div>
