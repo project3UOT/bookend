@@ -6,11 +6,8 @@ const FILES_TO_CACHE = [
   "/index.html",
   "/favicon.ico",
   "/logo192.png",
-  "/logo512.png",
   "/manifest.json",
   "/robots.txt"
-  
-  
 ];
 
 // // Cache resources

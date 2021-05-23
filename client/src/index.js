@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './bulma.min.css';
 import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
+//import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+//import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,4 +12,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
   
-serviceWorkerRegistration.register();
+//serviceWorkerRegistration.register();
