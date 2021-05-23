@@ -5259,7 +5259,7 @@ body.has-navbar-fixed-bottom {
 .navbar-brand,
 .navbar-tabs {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
   min-height: 3.25rem;
@@ -5283,10 +5283,11 @@ body.has-navbar-fixed-bottom {
   height: 3.25rem;
   position: relative;
   width: 3.25rem;
-  margin-left: auto;
+  margin: 0;
 }
 .navbar-burger span {
   background-color: currentColor;
+  color: white;
   display: block;
   height: 1px;
   left: calc(50% - 8px);

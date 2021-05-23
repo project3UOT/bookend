@@ -15,6 +15,9 @@ const AppNavbar = () => {
     <>
       <nav className='navbar' role='navigation' aria-label='main navigation'>
         <div className='navbar-brand p-2'>
+          <a className='navbar-item' href='/'>
+            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
+          </a>
           <a
             role='button'
             className={'navbar-burger' + (showMobileNav ? ' is-active' : '')}
@@ -25,11 +28,6 @@ const AppNavbar = () => {
             <span aria-hidden='true'></span>
             <span aria-hidden='true'></span>
           </a>
-          
-          <a className='navbar-item' href='/'>
-            <img src={require('../../assets/imgs/logo.png')} alt='books'></img>
-          </a>
-          
         </div>
 
         <div className={'navbar-menu navbar-end' + (showMobileNav ? ' is-active is-justify-content-center' : '')}>
