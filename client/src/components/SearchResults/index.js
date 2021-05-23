@@ -1,15 +1,10 @@
 import React from 'react';
-import { useBookendContext } from "../../utils/GlobalState";
-import Auth from '../../utils/auth';
 import BookCard from '../BookCard';
-import { useQuery } from '@apollo/react-hooks';
-import { GET_ME } from '../../utils/queries';
+import { useBookendContext } from "../../utils/GlobalState";
 
 const Results = ({ reference }) => {
-    const [state] = useBookendContext();
+    const [ state ] = useBookendContext();
     const { movie, searchedBooks, savedBooks } = state;
-    const { loading, data } = useQuery(GET_ME);
-    const userData = data?.me;
 
     return (
         <section className='container py-5' ref={reference}>
@@ -20,8 +15,8 @@ const Results = ({ reference }) => {
                 {searchedBooks.map(book => {
                     return (
                         <BookCard
-                            saved={//savedBooks.some(savedBook => savedBook === book.bookId)
-                                userData?.savedBooks.some(userBook => userBook.bookId === book.bookId)}
+                            saved={savedBooks.some(savedBook => savedBook.bookId === book.bookId)}
+                                //userData?.savedBooks.some(userBook => userBook.bookId === book.bookId)}
                             bookId={book.bookId}
                             fromSearch={true}
                             img={book.image}

@@ -37,7 +37,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                     });
                     dispatch({
                         type: UPDATE_SAVED_BOOKS,
-                        savedBooks: [...savedBooks, selectedBook.bookId]
+                        savedBooks: [...savedBooks, selectedBook]
                     })
                     console.log('saved books', savedBooks);
                     break;
@@ -69,15 +69,15 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
     };
 
     return (
-        <div className='card-footer justify-content-center align-items-center'>
+        <div className='card-footer is-justify-content-center align-items-center'>
             {fromSearch && Auth.loggedIn() ? 
                 <button 
                     className='button is-inverted is-primary'
-                    disabled={saved || savedBooks.some(savedBook => savedBook === bookId) }
+                    disabled={saved || savedBooks.some(savedBook => savedBook.bookId === bookId) }
                     onClick={() => {
                         handleClick('save', bookId);
                     }}>
-                    {saved || savedBooks.some(savedBook => savedBook === bookId) ? 'Saved' : <><FaBookmark className='pr-2' /> Save</>}
+                    {saved || savedBooks.some(savedBook => savedBook.bookId === bookId) ? 'Saved' : <><FaBookmark className='pr-2' /> Save</>}
                 </button>
              : 
              <>

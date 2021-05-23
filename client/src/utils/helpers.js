@@ -17,9 +17,9 @@ export function idbPromise(storeName, method, object) {
     request.onupgradeneeded = function(e) {
       const db = request.result;
       // create object store for each type of data and set "primary" key index to be the `_id` of the data
-      db.createObjectStore('savedBooks', { keyPath: '_id' });
-      db.createObjectStore('booksToRead', { keyPath: '_id' });
-      db.createObjectStore('bookShelf', { keyPath: '_id' });
+      db.createObjectStore('savedBooks', { keyPath: 'bookId' });
+      db.createObjectStore('booksToRead', { keyPath: 'bookId' });
+      db.createObjectStore('bookShelf', { keyPath: 'bookId' });
     };
 
     // handle any errors with connecting
