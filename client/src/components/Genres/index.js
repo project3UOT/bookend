@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { searchGoogleBooks } from '../../utils/API';
 import { useBookendContext } from "../../utils/GlobalState";
 import Results from '../SearchResults';
@@ -10,7 +10,7 @@ import {
 
 const genres = ['Horror', 'Comedy', 'Sci-Fi', 'Fantasy', 'Thriller', 'Romance', 'Mystery'];
 
-const Genres = () => {
+const Genres = ({ reference, scroll }) => {
     const [state, dispatch] = useBookendContext();
 
     const { searchInput } = state;
@@ -55,13 +55,15 @@ const Genres = () => {
                 }
             );
 
+            scroll();
+
         } catch (err) {
             console.error(err);
         }
     };
 
     return (
-        <section className='section'>
+        <section className='section' ref={reference}>
             <h2 className='has-text-centered is-family-secondary is-size-3 text-dark mb-2'>Or, pick a genre</h2>
             <form className='buttons is-centered' onSubmit={handleFormSubmit}>
                     {genres.map(genre =>

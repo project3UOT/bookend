@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
 import { 
     UPDATE_SEARCH_INPUT,
@@ -6,7 +6,7 @@ import {
     UPDATE_SEARCHED_BOOKS  } from '../../utils/actions';
 import { searchGoogleBooks } from '../../utils/API';
 
-const MovieSearchForm = () => {
+const MovieSearchForm = ({ reference, scroll }) => {
     const [state, dispatch] = useBookendContext();
 
     const { searchInput } = state;
@@ -23,7 +23,7 @@ const MovieSearchForm = () => {
             const getMovieRequest = async (searchInput) => {
                 let movie0;
                 let movieGenre;
-                const url = `http://www.omdbapi.com/?t=${searchInput}&apikey=263d22d8`;
+                const url = `https://www.omdbapi.com/?t=${searchInput}&apikey=263d22d8`;
 
                 const response = await fetch(url);
                 const responseJson = await response.json();
@@ -31,7 +31,6 @@ const MovieSearchForm = () => {
                 if (responseJson) {
                     console.log('response: ', responseJson);
                     movie0 = responseJson;
-                    //setMovie(movie0.Title);
 
                         dispatch({
                             type: UPDATE_MOVIE,
@@ -77,13 +76,15 @@ const MovieSearchForm = () => {
                 }
             );
 
+            scroll();
+
         } catch (err) {
             console.error(err);
         }
     };
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} ref={reference}>
 
         <div className='field has-addons'>
             <div className='control'>

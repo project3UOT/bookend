@@ -1,7 +1,7 @@
 import React from 'react';
 import BookCard from '../BookCard';
 import { useBookendContext } from "../../utils/GlobalState";
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { GET_ME } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
@@ -50,6 +50,7 @@ const BookList = () => {
                             <BookCard
                                 fromSearch={false}
                                 title={book.title}
+                                img={book.image}
                                 author={book.authors}
                                 read={book.read}
                                 favourite={book.favourite}

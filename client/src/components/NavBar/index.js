@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SignUpForm from '../SignupForm/index';
 import LoginForm from '../LoginForm/index';
 
@@ -36,12 +37,12 @@ const AppNavbar = () => {
             <div className='buttons'>
               {Auth.loggedIn() ? (
                 <>
-                  <a className='button is-primary is-size-5' href='/profile'>
+                  <Link className='button is-primary is-size-5' to='/profile'>
                     <strong>My Books</strong>
-                  </a>
-                  <a className='button is-primary is-size-5' onClick={Auth.logout} href='/'>
+                  </Link>
+                  <Link className='button is-primary is-size-5' onClick={Auth.logout} to='/'>
                     <strong>Logout</strong>
-                  </a>
+                  </Link>
                 </>
               ) : (
                   <>

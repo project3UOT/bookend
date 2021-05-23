@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Bookend",
+
+  "short_name": "Book End",
+  "name": "Book End",
+
   "icons": [
     {
       "src": "/favicon.ico",
@@ -20,6 +22,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#3a3e50",
   "background_color": "#ffffff"
 }
