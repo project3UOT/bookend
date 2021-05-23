@@ -7,7 +7,7 @@ import {
     UPDATE_MOVIE
 } from '../../utils/actions';
 
-const genres = ['Horror', 'Comedy', 'Sci-Fi', 'Fantasy', 'Thriller', 'Romance', 'Mystery'];
+const genres = ['Horror', 'Comedy', 'History', 'Science Fiction', 'Drama', 'Fantasy', 'Thriller', 'True Crime', 'Romance', 'Mystery'];
 
 const Genres = ({ reference, scroll }) => {
     const [state, dispatch] = useBookendContext();

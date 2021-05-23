@@ -21,7 +21,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
     const [ removeBook ] = useMutation(REMOVE_BOOK);
 
     const handleClick = async (action, bookId) => {
-        const selectedBook = searchedBooks.find(book => book.bookId === bookId);
+        //const selectedBook = searchedBooks.find(book => book.bookId === bookId);
 
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -31,8 +31,10 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
         }
 
         try {
+            let selectedBook;
             switch (action) {
                 case 'save':
+                    selectedBook = searchedBooks.find(book => book.bookId === bookId)
                     await saveBook({
                         variables: { "book": { ...selectedBook } }
                     });
@@ -43,6 +45,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                     idbPromise('savedBooks', 'put', selectedBook);
                     break;
                 case 'read':
+                    selectedBook = savedBooks.find(book => book.bookId === bookId)
                     const newReadStatus = !read;
                     await updateBookRead({
                         variables: { 
@@ -57,8 +60,10 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         bookId: bookId,
                         read: newReadStatus
                     })
+                    idbPromise('savedBooks', 'put', selectedBook);
                     break;
                 case 'favourite':
+                    selectedBook = savedBooks.find(book => book.bookId === bookId)
                     const newFavouriteStatus = !favourite;
                     await updateBookFavourite({
                         variables: {
@@ -72,7 +77,8 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         type: UPDATE_FAVOURITE,
                         bookId: bookId,
                         favourite: newFavouriteStatus
-                    })
+                    });
+                    idbPromise('savedBooks', 'put', selectedBook);
                     break;
             }
         } catch (err) {
