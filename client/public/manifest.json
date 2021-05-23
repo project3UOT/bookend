@@ -1,6 +1,7 @@
 {
   "short_name": "Book End",
   "name": "Book End",
+  "description": "An app that recommends books to users based on their favourite TV shows and films",
   "icons": [
     {
       "src": "favicon.ico",
