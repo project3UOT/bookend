@@ -60,7 +60,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         bookId: bookId,
                         read: newReadStatus
                     })
-                    idbPromise('savedBooks', 'put', selectedBook);
+                    idbPromise('savedBooks', 'put', {...selectedBook, read: newReadStatus});
                     break;
                 case 'favourite':
                     selectedBook = savedBooks.find(book => book.bookId === bookId)
@@ -78,7 +78,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         bookId: bookId,
                         favourite: newFavouriteStatus
                     });
-                    idbPromise('savedBooks', 'put', selectedBook);
+                    idbPromise('savedBooks', 'put', { ...selectedBook, favourite: newFavouriteStatus });
                     break;
             }
         } catch (err) {
