@@ -28,7 +28,6 @@ const Home = () => {
                 type: UPDATE_SAVED_BOOKS,
                 savedBooks: userData.savedBooks
             })
-            console.log('there\'s userdata');
             userData.savedBooks.forEach(savedBook => {
                 idbPromise('savedBooks', 'put', savedBook);
             });
