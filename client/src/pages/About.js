@@ -16,7 +16,7 @@ const About = () => {
             </div>
         </section>
         <section>
-            <div className='container' className='container p-6'>
+            <div className='container p-6'>
 
 
             <h3 className='text-dark is-size-3 is-family-secondary'>Our Team</h3>

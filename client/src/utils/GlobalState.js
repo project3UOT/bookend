@@ -10,7 +10,8 @@ const BookendProvider = ({ value = [], ...props }) => {
         currentCategory: 'All',
         searchInput: '',
         movie: '',
-        searchedBooks: []
+        searchedBooks: [],
+        savedBooks: []
     });
     // use this to confirm it works!
     console.log(state);

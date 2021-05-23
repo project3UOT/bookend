@@ -7,11 +7,12 @@ import {
     REMOVE_BOOK,
     UPDATE_BOOK_READ,
     UPDATE_BOOK_FAVOURITE } from '../../utils/mutations';
+import { UPDATE_SAVED_BOOKS } from '../../utils/actions';
 import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark } from "react-icons/fa";
 
 const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) => {
-    const [state] = useBookendContext();
-    const { searchedBooks } = state;
+    const [ state, dispatch ] = useBookendContext();
+    const { searchedBooks, savedBooks } = state;
 
     const [ saveBook ] = useMutation(SAVE_BOOK);
     const [ updateBookRead ] = useMutation(UPDATE_BOOK_READ);
@@ -34,6 +35,11 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                     await saveBook({
                         variables: { "book": { ...selectedBook } }
                     });
+                    dispatch({
+                        type: UPDATE_SAVED_BOOKS,
+                        savedBooks: [...savedBooks, selectedBook.bookId]
+                    })
+                    console.log('saved books', savedBooks);
                     break;
                 case 'read':
                     await updateBookRead({
@@ -56,9 +62,6 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                     });
                     break;
             }
-
-            // if book successfully saves to user's account, save book id to state
-            // setSavedBookIds([...savedBookIds, bookToSave.bookId]);
         } catch (err) {
             alert("Something went wrong! :(");
             console.error(err);
@@ -70,11 +73,11 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
             {fromSearch && Auth.loggedIn() ? 
                 <button 
                     className='button is-inverted is-primary'
-                    disabled={saved}
+                    disabled={saved || savedBooks.some(savedBook => savedBook === bookId) }
                     onClick={() => {
-                        handleClick('save', bookId)
+                        handleClick('save', bookId);
                     }}>
-                    {saved ? 'Saved' : <><FaBookmark className='pr-2' /> Save</>}
+                    {saved || savedBooks.some(savedBook => savedBook === bookId) ? 'Saved' : <><FaBookmark className='pr-2' /> Save</>}
                 </button>
              : 
              <>
@@ -95,8 +98,8 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                 <FaHeart />
             </button>
             </>}
-            <a href={`https://www.amazon.com/s?k=${title}+book`} target="_blank" className='button is-inverted is-primary'>
-                        Buy <FaExternalLinkSquareAlt />
+                    <a href={`https://www.amazon.com/s?k=${title}+book`} target='_blank' rel='noopener noreferrer' className='button is-inverted is-primary'>
+                <FaExternalLinkSquareAlt />
             </a>
             </>
             }

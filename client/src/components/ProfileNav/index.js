@@ -4,9 +4,9 @@ import { UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
 import { FaFilter } from "react-icons/fa";
 
 const ProfileNav = () => {
-    const [state, dispatch] = useBookendContext();
-
     const [showMobileNav, setShowMobileNav] = useState(false);
+    
+    const [state, dispatch] = useBookendContext();
 
     const { categories, currentCategory } = state;
 

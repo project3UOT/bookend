@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { searchGoogleBooks } from '../../utils/API';
 import { useBookendContext } from "../../utils/GlobalState";
-import Results from '../SearchResults';
 import {
     UPDATE_SEARCH_INPUT,
     UPDATE_SEARCHED_BOOKS,
