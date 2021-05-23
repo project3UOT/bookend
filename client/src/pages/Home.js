@@ -19,6 +19,7 @@ const Home = () => {
     const results = useRef();
 
     const [ , dispatch] = useBookendContext();
+    
     const { loading, data } = useQuery(GET_ME);
     const userData = data?.me;
 
