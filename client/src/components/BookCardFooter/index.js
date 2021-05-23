@@ -1,17 +1,19 @@
 import React from 'react';
 import { useBookendContext } from "../../utils/GlobalState";
 import Auth from '../../utils/auth';
+import { idbPromise } from '../../utils/helpers';
 import { useMutation } from '@apollo/react-hooks';
 import { 
     SAVE_BOOK,
     REMOVE_BOOK,
     UPDATE_BOOK_READ,
     UPDATE_BOOK_FAVOURITE } from '../../utils/mutations';
-import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark } from "react-icons/fa";
+import { UPDATE_SAVED_BOOKS, UPDATE_READ, UPDATE_FAVOURITE, REMOVE_BOOK_FROM_SAVED } from '../../utils/actions';
+import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark, FaTrash } from "react-icons/fa";
 
 const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) => {
-    const [state] = useBookendContext();
-    const { searchedBooks } = state;
+    const [ state, dispatch ] = useBookendContext();
+    const { searchedBooks, savedBooks } = state;
 
     const [ saveBook ] = useMutation(SAVE_BOOK);
     const [ updateBookRead ] = useMutation(UPDATE_BOOK_READ);
@@ -19,7 +21,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
     const [ removeBook ] = useMutation(REMOVE_BOOK);
 
     const handleClick = async (action, bookId) => {
-        const selectedBook = searchedBooks.find(book => book.bookId === bookId);
+        //const selectedBook = searchedBooks.find(book => book.bookId === bookId);
 
         // get token
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -29,36 +31,66 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
         }
 
         try {
+            let selectedBook;
             switch (action) {
                 case 'save':
+                    selectedBook = searchedBooks.find(book => book.bookId === bookId)
                     await saveBook({
                         variables: { "book": { ...selectedBook } }
                     });
+                    dispatch({
+                        type: UPDATE_SAVED_BOOKS,
+                        savedBooks: [...savedBooks, selectedBook]
+                    })
+                    idbPromise('savedBooks', 'put', selectedBook);
                     break;
                 case 'read':
+                    selectedBook = savedBooks.find(book => book.bookId === bookId)
+                    const newReadStatus = !read;
                     await updateBookRead({
                         variables: { 
                             "book": { 
                                 "bookId": bookId,
-                                "read": !read
+                                "read": newReadStatus
                             } 
                         }
                     });
+                    dispatch({
+                        type: UPDATE_READ,
+                        bookId: bookId,
+                        read: newReadStatus
+                    })
+                    idbPromise('savedBooks', 'put', {...selectedBook, read: newReadStatus});
                     break;
                 case 'favourite':
+                    selectedBook = savedBooks.find(book => book.bookId === bookId)
+                    const newFavouriteStatus = !favourite;
                     await updateBookFavourite({
                         variables: {
                             "book": {
                                 "bookId": bookId,
-                                "favourite": !favourite
+                                "favourite": newFavouriteStatus
                             }
                         }
                     });
+                    dispatch({
+                        type: UPDATE_FAVOURITE,
+                        bookId: bookId,
+                        favourite: newFavouriteStatus
+                    });
+                    idbPromise('savedBooks', 'put', { ...selectedBook, favourite: newFavouriteStatus });
+                    break;
+                case 'delete':
+                    await removeBook({
+                        variables: { "bookId": bookId }
+                    });
+                    dispatch({
+                        type: REMOVE_BOOK_FROM_SAVED,
+                        bookId: bookId
+                    })
+                    idbPromise('savedBooks', 'delete', bookId);
                     break;
             }
-
-            // if book successfully saves to user's account, save book id to state
-            // setSavedBookIds([...savedBookIds, bookToSave.bookId]);
         } catch (err) {
             alert("Something went wrong! :(");
             console.error(err);
@@ -66,17 +98,19 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
     };
 
     return (
-        <div className='card-footer align-items-center'>
+        <div className='card-footer is-justify-content-center align-items-center p-2'>
             {fromSearch && Auth.loggedIn() ? 
                 <button 
                     className='button is-inverted is-primary'
-                    disabled={saved}
+                    disabled={saved || savedBooks.some(savedBook => savedBook.bookId === bookId) }
                     onClick={() => {
-                        handleClick('save', bookId)
+                        handleClick('save', bookId);
                     }}>
-                    {saved ? 'Saved' : <><FaBookmark className='pr-2' /> Save</>}
+                    {saved || savedBooks.some(savedBook => savedBook.bookId === bookId) ? 'Saved' : <><FaBookmark className='pr-2' /> Save</>}
                 </button>
              : 
+             <>
+             {Auth.loggedIn() &&
              <>
              <button 
                 className={'button is-inverted' + (read ? ' is-secondary' : ' is-primary')}
@@ -92,8 +126,13 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                         }}>
                 <FaHeart />
             </button>
-            <a href={`https://www.amazon.com/s?k=${title}+book`}target="_blank" className='button is-inverted is-primary'>
-
+            <button
+                className='button is-inverted is-primary'
+                onClick={() => handleClick('delete', bookId)}>
+                <FaTrash />
+            </button>
+            </>}
+                    <a href={`https://www.amazon.com/s?k=${title}+book`} target='_blank' rel='noopener noreferrer' className='button is-inverted is-primary'>
                 <FaExternalLinkSquareAlt />
             </a>
             </>

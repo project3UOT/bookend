@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -6,16 +7,11 @@ const Footer = () => {
         <footer className='footer'>
             <div className='content is-flex is-justify-content-space-evenly'>
 
-                <a href='/about' className='is-family-secondary is-size-4 pl-4'>
+                <Link to='/about' className='is-family-secondary is-size-4 pl-4'>
                     <strong>
                         About Us
                     </strong>
-                </a>
-                <a href='contact' className='is-family-secondary is-size-4 pl-4'>
-                    <strong>
-                        Contact
-                    </strong>
-                </a>
+                </Link>
                 <a
                     href='https://github.com/project3UOT/bookend' className='is-family-secondary is-size-4 pl-4'
                     target='_blank'

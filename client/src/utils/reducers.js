@@ -5,7 +5,10 @@ import {
     UPDATE_SEARCH_INPUT, 
     UPDATE_MOVIE, 
     UPDATE_SEARCHED_BOOKS,
-    UPDATE_SAVED_BOOKS } from './actions';
+    UPDATE_SAVED_BOOKS,
+    UPDATE_READ,
+    UPDATE_FAVOURITE,
+    REMOVE_BOOK_FROM_SAVED } from './actions';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -28,6 +31,31 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 searchedBooks: action.searchedBooks
+            };
+        case UPDATE_READ:
+            return {
+                ...state,
+                savedBooks: state.savedBooks.map(savedBook => {
+                    if (savedBook.bookId === action.bookId) {
+                        savedBook.read = action.read;
+                    }
+                    return savedBook;
+                })
+            };
+        case UPDATE_FAVOURITE:
+            return {
+                ...state,
+                savedBooks: state.savedBooks.map(savedBook => {
+                    if (savedBook.bookId === action.bookId) {
+                        savedBook.favourite = action.favourite;
+                    }
+                    return savedBook;
+                })
+            };
+        case REMOVE_BOOK_FROM_SAVED:
+            return {
+                ...state,
+                savedBooks: state.savedBooks.filter(savedBook => savedBook.bookId !== action.bookId)
             };
         case UPDATE_SAVED_BOOKS:
             return {

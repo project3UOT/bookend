@@ -6,7 +6,7 @@ import {
     UPDATE_SEARCHED_BOOKS  } from '../../utils/actions';
 import { searchGoogleBooks } from '../../utils/API';
 
-const MovieSearchForm = () => {
+const MovieSearchForm = ({ reference, scroll }) => {
     const [state, dispatch] = useBookendContext();
 
     const { searchInput } = state;
@@ -14,6 +14,8 @@ const MovieSearchForm = () => {
     // create method to search for books and set state on form submit
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
+        document.querySelector('[name="searchInput"]').value = '';
 
         if (!searchInput) {
             return false;
@@ -23,7 +25,7 @@ const MovieSearchForm = () => {
             const getMovieRequest = async (searchInput) => {
                 let movie0;
                 let movieGenre;
-                const url = `http://www.omdbapi.com/?t=${searchInput}&apikey=263d22d8`;
+                const url = `https://www.omdbapi.com/?t=${searchInput}&apikey=263d22d8`;
 
                 const response = await fetch(url);
                 const responseJson = await response.json();
@@ -31,7 +33,6 @@ const MovieSearchForm = () => {
                 if (responseJson) {
                     console.log('response: ', responseJson);
                     movie0 = responseJson;
-                    //setMovie(movie0.Title);
 
                         dispatch({
                             type: UPDATE_MOVIE,
@@ -77,13 +78,15 @@ const MovieSearchForm = () => {
                 }
             );
 
+            scroll();
+
         } catch (err) {
             console.error(err);
         }
     };
 
     return (
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={handleFormSubmit} ref={reference}>
 
         <div className='field has-addons'>
             <div className='control'>
@@ -92,7 +95,6 @@ const MovieSearchForm = () => {
                 type='text' 
                 placeholder='Enter a TV show or film' 
                 name='searchInput'
-                value={searchInput}
                 onChange={e => {
                     dispatch({
                         type: UPDATE_SEARCH_INPUT,

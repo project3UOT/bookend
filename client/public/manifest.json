@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Book End",
+  "name": "Book End",
+  "description": "An app that recommends books to users based on their favourite TV shows and films",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,15 +12,10 @@
       "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#3a3e50",
   "background_color": "#ffffff"
 }
