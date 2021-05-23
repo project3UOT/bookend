@@ -34,7 +34,7 @@ const Genres = ({ reference, scroll }) => {
 
             const bookData = items.map((book) => ({
                 bookId: book.id,
-                authors: book.volumeInfo.authors || ['No author to display'],
+                authors: (book.volumeInfo.authors.length === 1 ? book.volumeInfo.authors : book.volumeInfo.authors.map((author, i, array) => i < array.length - 1 ? `${author}, ` : author )) || ['No author'],
                 title: book.volumeInfo.title,
                 image: book.volumeInfo.imageLinks?.thumbnail || '',
                 genre: book.volumeInfo.categories || ['No Genre to display'],

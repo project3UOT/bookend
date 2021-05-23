@@ -3,7 +3,7 @@ import BookCardFooter from '../BookCardFooter';
 
 const BookCard = ({ bookId, title, author, img, read, favourite, fromSearch, saved }) => {
     return (
-        <div className='column is-2-desktop is-4-tablet'>
+        <div className='column is-2-widescreen is-one-fifth-desktop is-4-tablet'>
 
         <div className='card'>
             <div className='card-image'>

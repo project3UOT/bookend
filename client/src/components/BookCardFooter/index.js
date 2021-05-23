@@ -66,7 +66,7 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
     };
 
     return (
-        <div className='card-footer align-items-center'>
+        <div className='card-footer justify-content-center align-items-center'>
             {fromSearch && Auth.loggedIn() ? 
                 <button 
                     className='button is-inverted is-primary'
@@ -95,9 +95,8 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                 <FaHeart />
             </button>
             </>}
-            <a href={`https://www.amazon.com/s?k=${title}+book`}target="_blank" className='button is-inverted is-primary'>
-
-                <FaExternalLinkSquareAlt />
+            <a href={`https://www.amazon.com/s?k=${title}+book`} target="_blank" className='button is-inverted is-primary'>
+                        Buy <FaExternalLinkSquareAlt />
             </a>
             </>
             }
