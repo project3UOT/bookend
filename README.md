@@ -31,7 +31,7 @@ git clone https://github.com/project3UOT/bookend.git
 Use thiis site to get great suggestions for books and Tv shows based on what you have previously watched or read
 
 ## Deployed application link
-(TBA)
+[Bookend](http://bookend-recommendations.herokuapp.com/)
 
 ## Langugages/Technology Used
 
