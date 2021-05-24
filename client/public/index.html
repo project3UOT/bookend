@@ -6,7 +6,7 @@
   <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#3a3e50" />
-  <meta name="description" content="An app that recommends books based on users favourite filmsand TV shows" />
+  <meta name="description" content="An app that recommends books to users based on their favourite TV shows and films" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
   <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -46,16 +46,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-
-    <script type="text/javascript">
-      (function() {
-        if("serviceWorker" in navigator) {
-          navigator.serviceWorker.register("./service-worker.js")
-            .then(() => console.log("Service Worker registered successfully."))
-            .catch(error => console.log("Service Worker registration failed:", error));
-        }
-      })();
-      </script>
 
 </body>
 

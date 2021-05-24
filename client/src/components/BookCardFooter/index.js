@@ -8,8 +8,8 @@ import {
     REMOVE_BOOK,
     UPDATE_BOOK_READ,
     UPDATE_BOOK_FAVOURITE } from '../../utils/mutations';
-import { UPDATE_SAVED_BOOKS, UPDATE_READ, UPDATE_FAVOURITE } from '../../utils/actions';
-import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark } from "react-icons/fa";
+import { UPDATE_SAVED_BOOKS, UPDATE_READ, UPDATE_FAVOURITE, REMOVE_BOOK_FROM_SAVED } from '../../utils/actions';
+import { FaCheckCircle, FaHeart, FaExternalLinkSquareAlt, FaBookmark, FaTrash } from "react-icons/fa";
 
 const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) => {
     const [ state, dispatch ] = useBookendContext();
@@ -80,6 +80,16 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                     });
                     idbPromise('savedBooks', 'put', { ...selectedBook, favourite: newFavouriteStatus });
                     break;
+                case 'delete':
+                    await removeBook({
+                        variables: { "bookId": bookId }
+                    });
+                    dispatch({
+                        type: REMOVE_BOOK_FROM_SAVED,
+                        bookId: bookId
+                    })
+                    idbPromise('savedBooks', 'delete', bookId);
+                    break;
             }
         } catch (err) {
             alert("Something went wrong! :(");
@@ -115,6 +125,11 @@ const BookCardFooter = ({ read, favourite, fromSearch, saved, bookId, title }) =
                             handleClick('favourite', bookId)
                         }}>
                 <FaHeart />
+            </button>
+            <button
+                className='button is-inverted is-primary'
+                onClick={() => handleClick('delete', bookId)}>
+                <FaTrash />
             </button>
             </>}
                     <a href={`https://www.amazon.com/s?k=${title}+book`} target='_blank' rel='noopener noreferrer' className='button is-inverted is-primary'>

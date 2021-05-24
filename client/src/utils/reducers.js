@@ -7,7 +7,8 @@ import {
     UPDATE_SEARCHED_BOOKS,
     UPDATE_SAVED_BOOKS,
     UPDATE_READ,
-    UPDATE_FAVOURITE } from './actions';
+    UPDATE_FAVOURITE,
+    REMOVE_BOOK_FROM_SAVED } from './actions';
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -50,6 +51,11 @@ export const reducer = (state, action) => {
                     }
                     return savedBook;
                 })
+            };
+        case REMOVE_BOOK_FROM_SAVED:
+            return {
+                ...state,
+                savedBooks: state.savedBooks.filter(savedBook => savedBook.bookId !== action.bookId)
             };
         case UPDATE_SAVED_BOOKS:
             return {
